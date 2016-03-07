@@ -1,3 +1,17 @@
-app:
-    resource: "@AppBundle/Controller/"
+hackathon_user:
+    resource: "@HackathonUserBundle/Controller/"
     type:     annotation
+    prefix:   /user
+
+hackathon_api:
+    resource: "@HackathonApiBundle/Controller/"
+    type:     annotation
+    prefix:   /api
+
+hackathon_front:
+    resource: "@HackathonFrontBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+hackathon_core:
+    resource: "@HackathonCoreBundle/Controller/"

@@ -1,0 +1,4 @@
+services:
+#    hackathon_core.example:
+#        class: Hackathon\CoreBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
