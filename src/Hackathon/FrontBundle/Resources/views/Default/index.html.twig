@@ -1,6 +1,27 @@
 {% extends 'HackathonFrontBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1>Hackathon !</h1>
+    <nav class="navbar navbar-default navbar-size-large navbar-static-top navbar-map-overlay">
+        <a data-toggle="sidebar-menu" href="#sidebar-map" class="toggle pull-right hidden-xs margin-none flip"><i class="fa fa-list"></i></a>
+        <div class="navbar-header">
+            <div class="container-fluid">
+                <div class="navbar-text pull-left flip"><i class="fa fa-fw fa-info"></i> Discover thousands of locations</div>
+                <a class="toggle pull-right margin-none visible-xs flip" data-toggle="collapse" data-target="#map-nav"><i class="fa fa-sliders fa-rotate-90"></i></a>
+            </div>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="map-nav">
+            <form class="navbar-form  navbar-right">
+                <div class="search-2">
+                    <div class="input-group">
+                        <input type="text" class="form-control form-control-w-150" placeholder="Search ..">
+                    <span class="input-group-btn">
+            <button class="btn btn-inverse" type="button"><i class="fa fa-search"></i></button>
+        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </nav>
 {% endblock %}
 
