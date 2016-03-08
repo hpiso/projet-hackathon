@@ -2,6 +2,8 @@
 
 namespace CoreBundle\DataFixtures\ORM;
 
+use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
 use Hackathon\CoreBundle\Entity\PlaceType;
 
 class LoadPlaceTypeData implements FixtureInterface
@@ -31,7 +33,7 @@ class LoadPlaceTypeData implements FixtureInterface
         {
             $type = new PlaceType();
             $type->setName($value['nom']);
-            $type->setDescription($value['nom']);
+            $type->setDescription($value['description']);
 
             $objectManager->persist($type);
         }
