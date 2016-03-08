@@ -435,9 +435,9 @@ De -15 à -30% de réduction !</span>
                     <ul>
                         <li ><a id="rating1" class="categorie">Toute catégorie</a></li>
                         <li style="display:none;"><a id="rating2" class="categorie">2 étoiles</a></li>
-                        <li ><a id="rating3" class="categorie">3 étoiles</a></li>
-                        <li ><a id="rating4" class="categorie">4 étoiles</a></li>
-                        <li ><a id="rating5" class="categorie">5 étoiles</a></li>
+                        <li ><a id="rating3" class="categorie">Restaurant</a></li>
+                        <li ><a id="rating4" class="categorie">Bar</a></li>
+                        <li ><a id="rating5" class="categorie">Cinéma</a></li>
                     </ul>
                 </div>
             </li>
@@ -445,33 +445,21 @@ De -15 à -30% de réduction !</span>
                 <a href="javascript:void(0)" class="drop" id="drop2">Avis</a>
                 <div class="dropdown_4columns">
                     <ul>
-                        <li><a id="equipemente1" class="equipement">Internet haut débit gratuit</a></li>
-                        <li><a id="equipemente2" class="equipement">Bar-Salon</a></li>
-                        <li><a id="equipemente3" class="equipement">Restaurant</a></li>
-                        <li><a id="equipemente4" class="equipement">Piscine</a></li>
-                        <li><a id="equipemente5" class="equipement">Equipement bien-être</a></li>
-                        <li><a id="equipemente6" class="equipement">Centre de remise en forme</a></li>
-                        <li><a id="equipemente7" class="equipement">Petit déjeuner gratuit</a></li>
+                        <li><a id="equipemente1" class=" click">Indifférent</a></li>
+                        <li><a id="equipemente1" class="equipement">4 étoiles</a></li>
+                        <li><a id="equipemente2" class="equipement">3 étoiles</a></li>
+                        <li><a id="equipemente3" class="equipement">2 étoiles</a></li>
+                        <li><a id="equipemente4" class="equipement">1 étoiles</a></li>
                     </ul>
                 </div>
             </li>
             <li><a href="javascript:void(0)" class="drop" id="drop3">Distance</a>
                 <div class="dropdown_3columns">
                     <ul>
-                        <li><a class="thematique" id="thematiquee1">Route des vins</a></li>
-                        <li><a class="thematique" id="thematiquee2">Bonne table</a></li>
-                        <li><a class="thematique" id="thematiquee3">Bien-être</a></li>
-                        <li style="display:none;"><a class="thematique " id="thematiquee4">thematique hidden</a></li>
-                        <li style="display:none;"><a class="thematique " id="thematiquee5">thematique hidden</a></li>
-                        <li style="display:none;"><a class="thematique " id="thematiquee6">thematique hidden</a></li>
-                        <li><a class="thematique" id="thematiquee7">Golf</a></li>
-                        <li style="display:none;"><a class="thematique " id="thematiquee8">thematique hidden</a></li>
-                        <li style="display:none;"><a class="thematique " id="thematiquee9">thematique hidden</a></li>
-                        <li><a class="thematique" id="thematiquee10">Ecolabel</a></li>
-                        <li style="display:none;"><a class="thematique " id="thematiquee11">thematique hidden</a></li>
-                        <li style="display:none;"><a class="thematique " id="thematiquee12">thematique hidden</a></li>
-                        <li style="display:none;"><a class="thematique " id="thematiquee13">thematique hidden</a></li>
-                        <li><a class="thematique" id="thematiquee14">Famille</a></li>
+                        <li><a class="thematique click" id="thematiquee1">Indifférent</a></li>
+                        <li><a class="thematique" id="thematiquee1">< 1km</a></li>
+                        <li><a class="thematique" id="thematiquee2">entre 1 et 2km</a></li>
+                        <li><a class="thematique" id="thematiquee3">entre 2 et 5km</a></li>
                     </ul>
                 </div>
             </li>
@@ -487,7 +475,7 @@ De -15 à -30% de réduction !</span>
         <div id="lienhideshow" style="left:0;"><a href="javascript:void(0)" class="show" style="display:none;"><img src="http://www.bestwestern.fr/public/images/pictos/fleche-a-gauche.png"/></a><a href="javascript:void(0)" class="hide" ><img src="http://www.bestwestern.fr/public/images/pictos/fleche-a-droite.png"/></a></div>
         <div id="left_div" style="display:none;">
             <form action="http://www.bestwestern.fr/recherche_hotel_carte/" method="post" name="form" id="form1">
-                <h2>Vérifiez la disponibilité<img alt="" class="flecheTitre" src="http://www.bestwestern.fr/public/images/pictos/fleche-bottom.png" /></h2>
+                <h2>Nom de l'activité<img alt="" class="flecheTitre" src="http://www.bestwestern.fr/public/images/pictos/fleche-bottom.png" /></h2>
                 <div class="blocDate">
                     <div class="champDate champGauche">
                         <label>Arrivée le</label>
@@ -1291,7 +1279,7 @@ De -15 à -30% de réduction !</span>
                     ]
                 }
             ];
-            $("#titre_hotels").html('Nos hôtels<img alt="" class="flecheTitre" src="http://www.bestwestern.fr/public/images/pictos/fleche-bottom.png" />');
+            $("#titre_hotels").html('Avis<img alt="" class="flecheTitre" src="http://www.bestwestern.fr/public/images/pictos/fleche-bottom.png" />');
             maCarte = new google.maps.Map(document.getElementById("carte"), optionsCarte);
             maCarte.setOptions({styles: styles});
             maCarte.setZoom(parseInt('10'));
@@ -2792,7 +2780,7 @@ De -15 à -30% de réduction !</span>
         $(document).ready(function(){
             google.maps.event.addListener(maCarte, 'dragend', function() {
                 document.getElementById('ville_par_pays').value="";
-                document.getElementById('ville_par_pays').placeholder = 'ex : Ville / Adresse / Lieu ...';
+                document.getElementById('ville_par_pays').placeholder = 'Votre hôtel Best Western';
                 document.getElementById('cityname').value="";
                 var categ1 = '';
                 var categ2 = '';
