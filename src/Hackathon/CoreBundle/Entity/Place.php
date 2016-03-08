@@ -62,6 +62,11 @@ class Place
      */
     private $hotel;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="PlaceType")
+     * @ORM\JoinColumn(name="place_type_id", referencedColumnName="id")
+     */
+    private $placeType;
 
     /**
      * Get id
@@ -209,5 +214,28 @@ class Place
     public function getHotel()
     {
         return $this->hotel;
+    }
+
+    /**
+     * Set placeType
+     *
+     * @param \Hackathon\CoreBundle\Entity\PlaceType $placeType
+     * @return Place
+     */
+    public function setPlaceType(\Hackathon\CoreBundle\Entity\PlaceType $placeType = null)
+    {
+        $this->placeType = $placeType;
+
+        return $this;
+    }
+
+    /**
+     * Get placeType
+     *
+     * @return \Hackathon\CoreBundle\Entity\PlaceType 
+     */
+    public function getPlaceType()
+    {
+        return $this->placeType;
     }
 }
