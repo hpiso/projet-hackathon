@@ -15,10 +15,11 @@ class FilterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('filter', EntityType::class, [
+            ->add('Recherche', EntityType::class, [
                 'class' => 'HackathonCoreBundle:Hotel',
                 'choice_label' => 'name',
-                'mapped' => false,
+                'label' => false
+
             ])
         ;
     }

@@ -16,13 +16,15 @@ class DefaultController extends Controller
     {
         $form = $this->createForm(new FilterType(), null);
         $form->handleRequest($request);
+        $hotel = null;
 
         if ($form->isValid()) {
-            dump($form);die;
+            $hotel = $form->getData();
         }
 
         return $this->render('HackathonFrontBundle:Default:index.html.twig', [
             'form' => $form->createView(),
+            'hotel' => $hotel
         ]);
     }
 }
