@@ -1,22 +1,32 @@
-<html lang="fr">
+<html lang="fr" class="st-layout ls-top-navbar ls-bottom-footer show-sidebar sidebar-r1 sidebar-l1-xs sidebar-l-48pc-lg sidebar-l-40pc">
 <head>
     <meta charset="ISO-8859-1">
     <meta name="robots" content="index,follow" />
     <title>Recherche d'hôtels Best Western sur une carte</title>
     <link rel="shortcut icon" href="http://www.bestwestern.fr/public/images/favicon.ico"/>
-    <link href="http://www.bestwestern.fr/public/css/squelette_miles.css?v=8831" rel="stylesheet" type="text/css" media="screen,print"/>
+    <link href="{{ asset('assets/css/squelette_miles.css') }}" rel="stylesheet" type="text/css" media="screen,print"/>
     <link type="text/css" href="http://www.bestwestern.fr/public/css/calendrier-fr.css" rel="stylesheet" media="screen,print"/>
-    <link type="text/css" rel="stylesheet" media="all" href="http://www.bestwestern.fr/public/css/spro/style.css"/>
+    <link type="text/css" rel="stylesheet" media="all" href="{{ asset('assets/css/style.css') }}"/>
+    {#<link type="text/css" rel="stylesheet" media="all" href="{{ asset('assets/css/all.css') }}"/>#}
+    {#<link type="text/css" rel="stylesheet" media="all" href="{{ asset('assets/css/app.css') }}"/>#}
 
     <!-- pop up REWARDS -->
     <link href="http://www.bestwestern.fr/public/css/club_rewards.css?v=11213" rel="stylesheet" type="text/css" media="screen,print"/>
     <link type="text/css" href="http://www.bestwestern.fr/public/css/jquery.ui.dialog.css" rel="stylesheet" media="screen,print"/>
-    <!-- pop up REWARDS --><link rel="stylesheet" href="http://www.bestwestern.fr/public/css/menu.css?v=9442" type="text/css" media="screen" />
+    <!-- pop up REWARDS --><link rel="stylesheet" href="{{ asset('assets/css/menu.css') }}" type="text/css" media="screen" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <link rel="canonical" href="http://www.bestwestern.fr/recherche_hotel_carte/" />
 
+    <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".overlay-bg-black").css("height", $("#photo_hotel").height());
+        });
+
+    </script>
 </head>
-<body id="body" class="bg_version_gagnatnte">
+<body id="body" class="breakpoint-1024">
 <div id="page">
     {% include 'HackathonFrontBundle::Common/header.html.twig' %}
     <div class="body_full_carto">

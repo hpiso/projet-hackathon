@@ -11,7 +11,7 @@
 .body_full_carto *{margin:0; padding:0; font-family:verdana, Arial, Helvetica, sans-serif; font-size:14px; outline:none; color:#000;}
 .body_full_carto a{color: #000000;}
 .clr{clear:both;}
-body#body{background:url('../images/background/bg-body.png') repeat-x #fff;position: relative;}
+body#body{background:url('http://bestwestern.fr/public/images/background/bg-body.png') repeat-x #fff;position: relative;}
 div#page {left: auto; margin: 0 auto; position: relative; top: auto;}
 
 
@@ -51,7 +51,7 @@ div#page {left: auto; margin: 0 auto; position: relative; top: auto;}
 .ac_results iframe{position: absolute; top:0; left:0; z-index:-1; width: 450px; height: 200px;}
 .ac_results li{padding: 4px 0 5px 5px; color:#a8a8a8; font-size:16px !important; border-bottom: 1px solid #CCCCCC; cursor:pointer;}
 .ac_results li strong{background: #F52887 !important; color: white;}
-.ac_loading,.cities_loading{background: white url('../images/pictos_miles/wait.gif') right center no-repeat;}
+.ac_loading,.cities_loading{background: white url('http://bestwestern.fr/public/images/pictos_miles/wait.gif') right center no-repeat;}
 .ac_over{background-color: #EFEFEF !important; color: black;}
 .ac_odd{background-color: #eee;}
 .ac_results ul li i{display: none;}
@@ -63,10 +63,10 @@ div#page {left: auto; margin: 0 auto; position: relative; top: auto;}
 #menu li ul{list-style:none;}
 #menu li > a{cursor:pointer;font-size:13px; color: #7a7a7a; display:block; padding:1px 0 3px 6px; text-decoration:none; white-space:nowrap; font-weight:normal;}
 #menu li > a:hover{color:#b90047; background:none;}
-#menu li .drop{padding-right:20px; background:url(../images/pictos/drop_menu.png) no-repeat 95% 8px; border:1px solid #fff; border-bottom:none;}
-#menu li .drop:hover{background:url(../images/pictos/drop_menu.png) no-repeat 95% 8px; border:1px solid #efefef; border-bottom:none;}
-#menu li a.click{background:url(../images/pictos_miles/puce-actif.png) no-repeat 7px 4px;}
-#menu li a.click:hover{background:url(../images/pictos_miles/puce-actif-hover.png) no-repeat 7px 4px #e6e6e6 !important;}
+#menu li .drop{padding-right:20px; background:url(http://bestwestern.fr/public/images/pictos/drop_menu.png) no-repeat 95% 8px; border:1px solid #fff; border-bottom:none;}
+#menu li .drop:hover{background:url(http://bestwestern.fr/public/images/pictos/drop_menu.png) no-repeat 95% 8px; border:1px solid #efefef; border-bottom:none;}
+#menu li a.click{background:url(http://bestwestern.fr/public/images/pictos_miles/puce-actif.png) no-repeat 7px 4px;}
+#menu li a.click:hover{background:url(http://bestwestern.fr/public/images/pictos_miles/puce-actif-hover.png) no-repeat 7px 4px #e6e6e6 !important;}
 .dropdown_1column,
 .dropdown_2columns,
 .dropdown_3columns,
@@ -89,10 +89,10 @@ div#page {left: auto; margin: 0 auto; position: relative; top: auto;}
 /* Content */
 #center_div{position:relative; border-top:1px solid #d0d0d0; }
 *+html #center_div{height:605px;}
-#lienhideshow{position:absolute; left:23%; top:31%; z-index:2; zoom:1;}
+#lienhideshow{position:absolute; left:33%; top:31%; z-index:2; zoom:1;}
 .pictoZoom{position:absolute; right:10px; top:10px; z-index:9; width:40px;}
 .pictoZoom img{cursor:pointer;}
-#left_div{float:left; width:23%; height:100%; position:relative; z-index:1;
+#left_div{    min-width: 33%;float:left; width:33% ; height:100%; position:relative; z-index:1;
     box-shadow:5px 5px 20px #949391 !important; -webkit-box-shadow:5px 5px 20px #949391 !important; -moz-box-shadow:5px 5px 20px #949391 !important;
 }
 #left_div h2{position:relative; font-family:FrutigerLTStd47LightCnBold, arial; background-color:#ffcb05; text-align:center; font-size:20px; color:#000; padding:10px; font-weight:normal !important;}
@@ -126,7 +126,7 @@ div#page {left: auto; margin: 0 auto; position: relative; top: auto;}
 input#DateRangeStart{width:90%; border:solid 1px #bfbfbf;padding-left:5px;height:27px;border-radius:6px;}
 input#DateRangeEnd{width:90%; border:solid 1px #bfbfbf;padding-left:5px;height:27px;border-radius:6px;}
 #DateRangeStart,#DateRangeEnd{padding-left: 1px;}
-.pictoDatepiker {background:url(../images/pictos_miles/cldr.png?i=j) no-repeat 95% center #fff; cursor:pointer;}
+.pictoDatepiker {background:url(http://bestwestern.fr/public/images/pictos_miles/cldr.png?i=j) no-repeat 95% center #fff; cursor:pointer;}
 #div_select_age_per_room{padding:3% 4%;}
 .type_resa.multiple_chambres1{margin-left:0;}
 #line_1, #line_2, #line_3{clear:left;}
@@ -208,11 +208,11 @@ input#DateRangeEnd{width:90%; border:solid 1px #bfbfbf;padding-left:5px;height:2
 .contentRight .visuelSldier{border:7px solid #e5e8f0; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px;}
 .contentRight .descriptionHotel{margin-bottom:15px; text-align:justify;}
 .contentRight .service{width:48%; float:left; margin-bottom:7px; font-size:13px;}
-.contentRight .service img{vertical-align:middle; margin:0 12px 0 0; background:url(../images/background/fond-picto-services.png); padding:5px; width:43px; height:43px;}
+.contentRight .service img{vertical-align:middle; margin:0 12px 0 0; background:url(http://bestwestern.fr/public/images/background/fond-picto-services.png); padding:5px; width:43px; height:43px;}
 .contentRight .descriptionHotel{font-size:12px; color:#000000;}
 .traitSep{height:1px; overflow:hidden; background:#cac9ca; border:none; margin:7px 0;}
 .ui-dialog{overflow:visible; box-shadow:0 0 7px #8c8a86 !important; -webkit-box-shadow:0 0 7px #8c8a86 !important; -moz-box-shadow:0 0 7px #8c8a86 !important;}
-.ui-dialog-titlebar-close{z-index:9999; background:url(../images/pictos/close.png) no-repeat transparent 0 0 !important; border:0 !important; width:25px !important; height:25px !important;}
+.ui-dialog-titlebar-close{z-index:9999; background:url(http://bestwestern.fr/public/images/pictos/close.png) no-repeat transparent 0 0 !important; border:0 !important; width:25px !important; height:25px !important;}
 .ui-dialog-titlebar-close span{background:none !important}
 .ui-dialog .ui-dialog-titlebar{padding:0 !important; width:100% !important; height:0 !important;}
 
@@ -256,11 +256,11 @@ div#google_autocompleter ul.ui-menu .ui-menu-item a{padding:3px 13px; color: #A8
 
 /******************************/
 .zoom-new{width:29px;right:25px;}
-.pictoZoom .ui-slider-vertical{width:29px !important;background:url(../images/carte/bg-gmap-zoom.png) repeat !important;height:56px !important;border:none;  }
-.zoom-new{width:29px !important;background:url(../images/carte/bg-gmap-zoom.png) repeat !important;height:56px !important;border:none;  }
-#zoom_plus{background:url(../images/carte/plus-gmap.png) no-repeat center center;width:29px;height:20px;font-size:0;text-indent:-99999em;display:block;position:absolute;top:3px;left:0px;z-index:9999; }
-#zoom_moins{background:url(../images/carte/moins-gmap.png) no-repeat center center;width:29px;height:15px;font-size:0;text-indent:-99999em;display:block;position:absolute;bottom:3px;left:0px;z-index:9999;  }
-.trait{background:url(../images/carte/trait-gmap.png) no-repeat;width:19px;height:1px;display:block;position:absolute;top:28px;left:5px;z-index:9999;  }
+.pictoZoom .ui-slider-vertical{width:29px !important;background:url(http://bestwestern.fr/public/images/carte/bg-gmap-zoom.png) repeat !important;height:56px !important;border:none;  }
+.zoom-new{width:29px !important;background:url(http://bestwestern.fr/public/images/carte/bg-gmap-zoom.png) repeat !important;height:56px !important;border:none;  }
+#zoom_plus{background:url(http://bestwestern.fr/public/images/carte/plus-gmap.png) no-repeat center center;width:29px;height:20px;font-size:0;text-indent:-99999em;display:block;position:absolute;top:3px;left:0px;z-index:9999; }
+#zoom_moins{background:url(http://bestwestern.fr/public/images/carte/moins-gmap.png) no-repeat center center;width:29px;height:15px;font-size:0;text-indent:-99999em;display:block;position:absolute;bottom:3px;left:0px;z-index:9999;  }
+.trait{background:url(http://bestwestern.fr/public/images/carte/trait-gmap.png) no-repeat;width:19px;height:1px;display:block;position:absolute;top:28px;left:5px;z-index:9999;  }
 .pictoZoom .ui-slider .ui-slider-handle{width:14px !important;height:13px !important;background: #BFBFBF !important;cursor: pointer;}
 .pictoZoom a{color:#B80045;font-size:12px;font-weight: bold;}
 .gm-style > div > div > div > div > div > div + img{top:-25px !important;right:-15px !important;*top:-15px !important;*right:-13px !important;}
@@ -313,7 +313,7 @@ div#google_autocompleter ul.ui-menu .ui-menu-item a{padding:3px 13px; color: #A8
     -webkit-border-radius:5px !important; -moz-border-radius:5px !important; border-radius:5px !important;width:900px;min-height:530px;height:530px;  overflow-x: hidden !important; overflow-y: auto;display:block !important; }
 .parentDialog .bt_fermer{position: absolute; width: 34px; height: 34px; border: 0px none; z-index: 101; cursor: pointer; right:-12px; top: -14px;}
 
-.gm-style .gm-style-iw + div{background:url(../images/pictos/close.png) no-repeat; width:34px !important; height:34px !important; top:-16px !important; right:-16px !important;opacity:1 !important;filter : alpha(opacity=100) !important;}
+.gm-style .gm-style-iw + div{background:url(http://bestwestern.fr/public/images/pictos/close.png) no-repeat; width:34px !important; height:34px !important; top:-16px !important; right:-16px !important;opacity:1 !important;filter : alpha(opacity=100) !important;}
 .gm-style .gm-style-iw + div img{display:none;}
 
 .gm-style > div > div > div + div + div > div + div + div > div > div > div + div + div > div > div{height:15px !important; transform: skewX(35.6deg) !important;ms-transform: skewX(35.6deg) !important;-ms-transform:skewX(35.6deg) !important;-webkit-transform:skewX(35.6deg) !important; -moz-transform:skewX(35.6deg) !important;-ms-filter-transform:skewX(35.6deg);}
@@ -347,7 +347,7 @@ and (orientation : portrait) {
 }
 
 /**********econ***********/
-.popup_map_hotel  .ui-dialog-titlebar-close{background:url(../images/econcierge/close-pop.jpg) no-repeat !important;font-size:0;top:10px !important;width:15px !important;cursor:pointer;right:-5px !important;}
+.popup_map_hotel  .ui-dialog-titlebar-close{background:url(http://bestwestern.fr/public/images/econcierge/close-pop.jpg) no-repeat !important;font-size:0;top:10px !important;width:15px !important;cursor:pointer;right:-5px !important;}
 
 /*******full-carto 01-06-2015**********/
 .contentLeft .itineraire{font-family: frutigerltstd45lightregular;border-top:1px solid #cac9ca;padding-top:10px;}
@@ -407,7 +407,7 @@ table#adp-placemark{background:#5188fd;padding:3px 0;}
 /**********gmap direction *************/
 .iframe-new .direct_panel {padding:16px 0 5px 10px;height:38px;display:block;border-top:1px solid #cdcdcd;border-bottom:1px solid #cdcdcd;margin-bottom:5px;  }
 .iframe-new .direct_panel span.directions-travel-mode-button{padding:0;float:left; }
-.iframe-new .direct_panel span a{background-image:url(../images/sprit-3.png); height:30px;width:45px;display:block;float:left;background-repeat:no-repeat;background-size:45px 350px; }
+.iframe-new .direct_panel span a{background-image:url(http://bestwestern.fr/public/images/sprit-3.png); height:30px;width:45px;display:block;float:left;background-repeat:no-repeat;background-size:45px 350px; }
 .iframe-new .direct_panel span a:hover{border-bottom:2px solid #4d90fe;height:30px;  }
 .iframe-new .direct_panel span a.selected:hover,.iframe-new .direct_panel span a.selected{border-bottom:none;height:33px;  }
 .iframe-new .direct_panel span a.driving{background-position: 0 -1px; }
@@ -423,12 +423,12 @@ table#adp-placemark{background:#5188fd;padding:3px 0;}
 
 .iframe-new .adp-list .adp-listheader{display:none; }
 .iframe-new #directions_panel .adp-list{float:left;width:98%;border:none;margin-left:2%;}
-.iframe-new .adp-list .adp-fullwidth td{border-bottom:1px solid #cdcdcd;padding:5px 1%;background:url(../images/select-itin.jpg) no-repeat left;padding-left:36px;}
+.iframe-new .adp-list .adp-fullwidth td{border-bottom:1px solid #cdcdcd;padding:5px 1%;background:url(http://bestwestern.fr/public/images/select-itin.jpg) no-repeat left;padding-left:36px;}
 .iframe-new .adp-list .adp-fullwidth td span{font-size:12px;color:#888686;font-family:verdana; }
 .iframe-new .adp-list .adp-fullwidth td span b{font-weight:normal;color:#888686;font-size:12px; }
-.iframe-new .adp-list .adp-fullwidth td.adp-listsel{background:url(../images/select-itin-h.jpg) no-repeat left;}
-.iframe-new .adp-list li{background:url("../images/select-itin.jpg") no-repeat left; /*box-shadow: 0 2px 6px rgba(0,0,0,0.3);*/padding:5px 5px 5px 25px !important;border-bottom:1px solid #cdcdcd;}
-.iframe-new .adp-list li.adp-listsel{background:url(../images/select-itin-h.jpg) no-repeat left;}
+.iframe-new .adp-list .adp-fullwidth td.adp-listsel{background:url(http://bestwestern.fr/public/images/select-itin-h.jpg) no-repeat left;}
+.iframe-new .adp-list li{background:url("http://bestwestern.fr/public/images/select-itin.jpg") no-repeat left; /*box-shadow: 0 2px 6px rgba(0,0,0,0.3);*/padding:5px 5px 5px 25px !important;border-bottom:1px solid #cdcdcd;}
+.iframe-new .adp-list li.adp-listsel{background:url(http://bestwestern.fr/public/images/select-itin-h.jpg) no-repeat left;}
 .iframe-new .adp-list li span,.iframe-new .adp-list li div{font-size:12px;color:#888686;font-family:verdana;}
 .iframe-new .adp-summary-duration{margin-top:10px;color:#6fba33 !important;}
 .iframe-new #directions_panel .adp{float:left;width:100%;}
