@@ -63,6 +63,14 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
         $place->setUrlSite('');
         $place->setHotel($this->getReference('hotel-aurore'));
         $place->setPlaceType($this->getReference('placetype-bar'));
+        $place5 = new Place();
+        $place5->setName('L\'Express de Lyon');
+        $place5->setDescription('Café-bar au cadre sobre et convivial, réputé pour sa sélection de bières pression et ses plats typiques.');
+        $place5->setAddress('1 Rue de Lyon, 75012 Paris');
+        $place5->setTel('01 43 43 21 32');
+        $place5->setUrlSite('');
+        $place5->setHotel($this->getReference('hotel-aurore'));
+        $place5->setPlaceType($this->getReference('placetype-bar'));
 
         $place2 = new Place();
         $place2->setName('L\'Européen');
@@ -72,6 +80,14 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
         $place2->setUrlSite('http://www.l-europeen.com/');
         $place2->setHotel($this->getReference('hotel-aurore'));
         $place2->setPlaceType($this->getReference('placetype-gastronomie'));
+        $place6 = new Place();
+        $place6->setName('L\'Européen');
+        $place6->setDescription('Brasserie au décor rétro et design, avec lustres en verrine et miroirs, spécialisée dans les fruits de mer.');
+        $place6->setAddress('21 bis Boulevard Diderot, 75012 Paris');
+        $place6->setTel('01 43 43 99 70');
+        $place6->setUrlSite('http://www.l-europeen.com/');
+        $place6->setHotel($this->getReference('hotel-aurore'));
+        $place6->setPlaceType($this->getReference('placetype-gastronomie'));
 
         $place3 = new Place();
         $place3->setName('La Maison Rouge');
@@ -81,6 +97,14 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
         $place3->setUrlSite('http://www.lamaisonrouge.org');
         $place3->setHotel($this->getReference('hotel-aurore'));
         $place3->setPlaceType($this->getReference('placetype-culture'));
+        $place7 = new Place();
+        $place7->setName('La Maison Rouge');
+        $place7->setDescription('Établissement qui pèse de ouf - Jolan, 2014');
+        $place7->setAddress('10 Boulevard de la Bastille, 75012 Paris');
+        $place7->setTel('01 40 01 08 80');
+        $place7->setUrlSite('http://www.lamaisonrouge.org');
+        $place7->setHotel($this->getReference('hotel-aurore'));
+        $place7->setPlaceType($this->getReference('placetype-culture'));
 
         $place4 = new Place();
         $place4->setName('Piscine Joséphine Baker');
@@ -90,6 +114,19 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
         $place4->setUrlSite('http://carilis.fr');
         $place4->setHotel($this->getReference('hotel-aurore'));
         $place4->setPlaceType($this->getReference('placetype-sport'));
+        $place8 = new Place();
+        $place8->setName('Piscine Joséphine Baker');
+        $place8->setDescription('Une piscine parisienne sur une péniche, au milieu de la seine');
+        $place8->setAddress('Port de la Gare, Quai François Mauriac, 75013 Paris');
+        $place8->setTel('01 56 61 96 503');
+        $place8->setUrlSite('http://carilis.fr');
+        $place8->setHotel($this->getReference('hotel-aurore'));
+        $place8->setPlaceType($this->getReference('placetype-sport'));
+
+        $objectManager->persist($place5);
+        $objectManager->persist($place6);
+        $objectManager->persist($place7);
+        $objectManager->persist($place8);
 
         $objectManager->flush();
     }
