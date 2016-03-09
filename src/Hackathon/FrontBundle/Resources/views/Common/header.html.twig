@@ -1,0 +1,107 @@
+<div id="V1" class="header_mvt blue">
+    <div class="area_1 alticlear">
+        <a href="http://www.bestwestern.fr/" title="" id="logo" onclick="javascript:return tc_events_2(this,'CLICK',{'LABEL':'Header::Logo::resultat_de_recherche','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'N'});"><img style="width: 145px" src="{{ asset('assets/image/logo.jpg') }}" alt="Best Western" /></a>
+        <p class="baseline uppercase ftl">Hôtels au singulier</p>
+        <ul class="account_links">
+            <li id="mon_compte_link_popup" class="sub profil"><a href="javascript:void(0);" title="">Mon compte</a>
+                <ul class=" sub_nav_1">
+                </ul>
+            </li>
+            <li class="sub resa">
+                <a title="">Mes réservations</a>
+                <ul id="mes_resa_bloc" class="sub_nav">
+                    <li class="form">
+                        <form method="post" action="https://www.bestwestern.fr/affiche_resa.jsp" id="infos_resa">
+                            <div id="header_mon_BWR" class="profil ui-tabs-panel" style="display:block!important;">
+                                <input type="text" id="email_resa" name="email_resa" class="pw" value="Email" />
+                                <input type="text" id="id_resa" name="id_resa" value="numéro de réservation" />
+                                <input type="submit" onclick="return validate_champs_affiche_resa();javascript:return tc_events_2(this,'CLICK',{'LABEL':'Header::Mes_reservations::OK::resultat_de_recherche','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'N'});" class="submit" value="OK" />
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+            <li class="sub langues">
+                <a id="lang_fr" onclick="javascript:return tc_events_2(this,'CLICK',{'LABEL':'Header::FR::resultat_de_recherche','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'S'});" href="javascript:void(0);" title="">Français</a>
+                <ul class="sub_nav countries">
+                    <li><a id="lang_en" onclick="javascript:return tc_events_2(this,'CLICK',{'LABEL':'Header::EN::resultat_de_recherche','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'S'});" href="javascript:gotoUrl('en/')" title="">English</a></li>
+                    <li><a id="lang_es" onclick="javascript:return tc_events_2(this,'CLICK',{'LABEL':'Header::ES::resultat_de_recherche','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'S'});" href="javascript:gotoUrl('es/')" title="">Espanol</a></li>
+                    <li><a id="lang_it" onclick="javascript:return tc_events_2(this,'CLICK',{'LABEL':'Header::IT::resultat_de_recherche','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'S'});" href="javascript:gotoUrl('it/')" title="">Italiano</a></li>
+                    <li><a id="lang_de" onclick="javascript:return tc_events_2(this,'CLICK',{'LABEL':'Header::DE::resultat_de_recherche','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'S'});" href="javascript:gotoUrl('de/')" title="">Deutsch</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="nav">
+            <li><a onclick="javascript:return tc_events_2(this,'CLICK',{'LABEL':'Header::Onglet_Trouver_un_hotel::resultat_de_recherche','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'N'});" href="http://www.bestwestern.fr/recherche_hotel_carte/" title="">Trouver un Hôtel</a></li>
+            <li class="sub"><a onclick="javascript:return tc_events_2(this,'CLICK',{'LABEL':'Header::Onglet_Nos_offres_bons_plans::Nos_offres_bons_plans::resultat_de_recherche','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'N'});" href="http://www.bestwestern.fr/hotel_promotion/" title="">Nos offres bons plans</a>
+                <ul class="sub_nav">
+                    <li class="sub_01">
+                        <a href="http://www.bestwestern.fr/offres_hotel_derniere_minute/" title="" onclick="javascript:return tc_events_2(this,'CLICK',{'LABEL':'Header::Onglet_Nos_offres_bons_plans::Dernieres_minutes::resultat_de_recherche','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'N'});">
+                            <span class="icon">&nbsp;</span>
+<span class="text">
+<span class="uppercase">Dernières minutes</span> Jusqu'à -25% de réduction !</span>
+                        </a>
+                    </li>
+                    <li class="sub_02">
+                        <a href="http://www.bestwestern.fr/offres-hotel-avant-premiere/" title="" onclick="javascript:return tc_events_2(this,'CLICK',{'LABEL':'Header::Onglet_Nos_offres_bons_plans::Reservation_anticipee::resultat_de_recherche','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'N'});">
+                            <span class="icon">&nbsp;</span>
+<span class="text">
+<span class="uppercase">Réservation anticipée</span>
+De -15 à -30% de réduction !</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="sub last">
+                <a href="http://www.bestwestern.fr/bwr_inscription.jsp">Votre programme de fidélité</a>
+                <ul class="sub_nav">
+                    <li class="sub_05">
+                        <a href="http://www.bestwestern.fr/best_western_rewards/" onclick="javascript:return tc_events_2(this,'CLICK',{'LABEL':'Menu_Site::Non_connecte::Club_rewards','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'N'});">
+                            <span class="icon">&nbsp;</span>
+                            <span class="text uppercase">DÉCOUVRIR LE CLUB BEST<br /> WESTERN REWARDS®</span>
+                        </a>
+                    </li>
+                    <li class="sub_06">
+                        <a href="http://www.bestwestern.fr/bwr_inscription.jsp#inscription_rewards" onclick="javascript:return tc_events_2(this,'CLICK',{'LABEL':'Menu_Site::Non_connecte::S_inscrire','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'N'});">
+                            <span class="icon">&nbsp;</span>
+                            <span class="text uppercase">S'INSCRIRE AU CLUB</span>
+                        </a>
+                    </li>
+                    <li class="sub_07">
+                        <a href="http://www.bestwestern.fr/boutique-rewards/" onclick="javascript:return tc_events_2(this,'CLICK',{'LABEL':'Menu_Site::Non_connecte::Boutique_cadeaux','XTCLICK_EVENT':'C','XTCLICK_S2':'10','XTCLICK_TYPE':'N'});">
+                            <span class="icon">&nbsp;</span>
+                            <span class="text uppercase">ACCÉDER AUX CADEAUX</span>
+                        </a>
+                    </li>
+                    <li class="sub_08">
+                        <a id="authen_rewards">
+                            <span class="icon">&nbsp;</span>
+                            <span class="text uppercase" id="open_popup_login_bwr">ACCÉDER À SON COMPTE</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="item-131 parent sub"><a href="http://www.bestwestern.fr/solution_pro/" >Votre espace pro</a>
+                <ul class="nav-child unstyled small sub_nav">
+                    <li class="item-118"><a href="http://espacepro.bestwestern.fr/"><span >&nbsp;</span><span class="text uppercase">BEST WESTERN | <span class="petitTexte">Affaires</span></span></a></li>
+                    <li class="item-122"><a href="http://seminaires.bestwestern.fr/" target="_blank"><span>&nbsp;</span><span class="text uppercase">BEST WESTERN | <span class="petitTexte">Séminaires</span></span></a></li>
+                    <li class="item-123"><a href="http://espacepro.bestwestern.fr/solutions-pro/espace-groupes-and-fit"><span>&nbsp;</span><span class="text uppercase">BEST WESTERN | <span class="petitTexte">Groupes &amp; fit</span></span></a></li>
+                </ul>
+            </li>
+        </ul> </div>
+    <div class="area_2 alticlear">
+        <ul class="rassurance uppercase ftl alticlear">
+            <li class="rassu_01">
+                <span class="ftb">Plus de 4000 hôtels</span>
+                présents dans <span class="ftb">plus de 100 pays</span>
+            </li>
+            <li class="rassu_02">Les meilleurs prix<br /> sont garantis <span class="ftb">sur notre site internet</span></li>
+            <li class="rassu_03">Un service client
+                <span class="ftb"><span style="font-family: 'FrutigerLTStd45LightRegular',Arial,Helvetica,sans-serif;">à votre écoute</span> 24/24, 7j/7</span>
+                <span class="small">(numéro vert)</span>
+            </li>
+        </ul>
+    </div>
+
+</div></div>

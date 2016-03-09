@@ -24,9 +24,9 @@ class Place
     /**
      * @var string
      *
-     * @ORM\Column(name="adress", type="string", length=255, unique=true)
+     * @ORM\Column(name="address", type="string", length=255, unique=true)
      */
-    private $adress;
+    private $address;
 
     /**
      * @var string
@@ -79,26 +79,26 @@ class Place
     }
 
     /**
-     * Set adress
+     * Set address
      *
-     * @param string $adress
+     * @param string $address
      * @return Place
      */
-    public function setAdress($adress)
+    public function setAddress($address)
     {
-        $this->adress = $adress;
+        $this->address = $address;
 
         return $this;
     }
 
     /**
-     * Get adress
+     * Get address
      *
      * @return string 
      */
-    public function getAdress()
+    public function getAddress()
     {
-        return $this->adress;
+        return $this->address;
     }
 
     /**

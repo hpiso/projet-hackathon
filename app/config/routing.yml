@@ -12,6 +12,3 @@ hackathon_front:
     resource: "@HackathonFrontBundle/Controller/"
     type:     annotation
     prefix:   /
-
-hackathon_core:
-    resource: "@HackathonCoreBundle/Controller/"
