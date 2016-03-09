@@ -1,7 +1,23 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Antoine
- * Date: 08/03/2016
- * Time: 15:30
- */
+
+namespace CoreBundle\DataFixtures\ORM;
+
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
+use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\Persistence\ObjectManager;
+use HackathonCoreBundle\Entity\Avis;
+
+class LoadAvisData implements FixtureInterface
+{
+    public function load(ObjectManager $objectManager)
+    {
+
+
+    }
+
+    public function getOrder()
+    {
+        return 4;
+    }
+}

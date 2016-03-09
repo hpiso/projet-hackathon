@@ -2,11 +2,13 @@
 
 namespace CoreBundle\DataFixtures\ORM;
 
+use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Hackathon\CoreBundle\Entity\PlaceType;
 
-class LoadPlaceTypeData implements FixtureInterface
+class LoadPlaceTypeData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {
     public function load(ObjectManager $objectManager)
     {
@@ -29,13 +31,15 @@ class LoadPlaceTypeData implements FixtureInterface
             ],
         ];
 
-        foreach($types as $value)
+        foreach ($types as $key => $value)
         {
             $type = new PlaceType();
             $type->setName($value['nom']);
             $type->setDescription($value['description']);
 
             $objectManager->persist($type);
+
+            $this->addReference('placetype-' . $value['nom'], $type);
         }
         $objectManager->flush();
     }
