@@ -1,27 +1,91 @@
 {% extends 'HackathonFrontBundle::layout.html.twig' %}
 
 {% block content %}
-    <nav class="navbar navbar-default navbar-size-large navbar-static-top navbar-map-overlay">
-        <a data-toggle="sidebar-menu" href="#sidebar-map" class="toggle pull-right hidden-xs margin-none flip"><i class="fa fa-list"></i></a>
-        <div class="navbar-header">
-            <div class="container-fluid">
-                <div class="navbar-text pull-left flip"><i class="fa fa-fw fa-info"></i> Discover thousands of locations</div>
-                <a class="toggle pull-right margin-none visible-xs flip" data-toggle="collapse" data-target="#map-nav"><i class="fa fa-sliders fa-rotate-90"></i></a>
+    <div align="center" class="zoneRecherche">
+        <form action="#" method="post" name="">
+            <div id="google_autocompleter"></div>
+            <div class="blocRecherche">
+                <input type="text" class="ac_input" name="ville_par_pays" id="ville_par_pays" value="Votre hôtel Best Western" />
+                <input class="btnForm" value="Rechercher" type="button" id="Rechercher" onclick="submitFormDispo();" />
             </div>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="map-nav">
-            <form class="navbar-form  navbar-right">
-                <div class="search-2">
-                    <div class="input-group">
-                        <input type="text" class="form-control form-control-w-150" placeholder="Search ..">
-                    <span class="input-group-btn">
-            <button class="btn btn-inverse" type="button"><i class="fa fa-search"></i></button>
-        </span>
-                    </div>
+        </form>
+    </div>
+    <div class="blocMenu">
+        <ul id="menu">
+            <li>
+                <a href="javascript:void(0)" class="drop" id="drop1">Catégorie</a>
+                <div class="dropdown_5columns">
+                    <ul>
+                        <li ><a id="rating1" class="categorie">Toute catégorie</a></li>
+                        <li style="display:none;"><a id="rating2" class="categorie">2 étoiles</a></li>
+                        <li ><a id="rating3" class="categorie">Restaurant</a></li>
+                        <li ><a id="rating4" class="categorie">Bar</a></li>
+                        <li ><a id="rating5" class="categorie">Cinéma</a></li>
+                    </ul>
                 </div>
-            </form>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="drop" id="drop2">Avis</a>
+                <div class="dropdown_4columns">
+                    <ul>
+                        <li><a id="equipemente1" class=" click">Indifférent</a></li>
+                        <li><a id="equipemente1" class="equipement">4 étoiles</a></li>
+                        <li><a id="equipemente2" class="equipement">3 étoiles</a></li>
+                        <li><a id="equipemente3" class="equipement">2 étoiles</a></li>
+                        <li><a id="equipemente4" class="equipement">1 étoiles</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="javascript:void(0)" class="drop" id="drop3">Distance</a>
+                <div class="dropdown_3columns">
+                    <ul>
+                        <li><a class="thematique click" id="thematiquee1">Indifférent</a></li>
+                        <li><a class="thematique" id="thematiquee1">< 1km</a></li>
+                        <li><a class="thematique" id="thematiquee2">entre 1 et 2km</a></li>
+                        <li><a class="thematique" id="thematiquee3">entre 2 et 5km</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="center_div">
+        <div class="pictoZoom zoom-new">
+            <a href="javascript:void(0)" id="zoom_plus" >+</a>
+            <span class="trait"></span>
+            <div id="slider-vertical" ></div>
+            <a href="javascript:void(0)" id="zoom_moins">-</a>
         </div>
-    </nav>
+        <div id="lienhideshow" style="left:0;"><a href="javascript:void(0)" class="show" style="display:none;"><img src="http://www.bestwestern.fr/public/images/pictos/fleche-a-gauche.png"/></a><a href="javascript:void(0)" class="hide" ><img src="http://www.bestwestern.fr/public/images/pictos/fleche-a-droite.png"/></a></div>
+        <div id="left_div">
+            <form action="http://www.bestwestern.fr/recherche_hotel_carte/" method="post" name="form" id="form1">
+                <h2>Nom de l'activité<img alt="" class="flecheTitre" src="http://www.bestwestern.fr/public/images/pictos/fleche-bottom.png" /></h2>
+                <div class="blocDate">
+                    <div class="champDate champGauche">
+                        <label>Arrivée le</label>
+                        <input type="text" id="DateRangeStart" name="DateRangeStart" class="pictoDatepiker ac_input" placeholder="JJ/MM/AAAA"/>
+                    </div>
+                    <div class="champDate champDroite">
+                        <label>Départ le</label>
+                        <input type="text" id="DateRangeEnd" name="DateRangeEnd" class="pictoDatepiker ac_input" placeholder="JJ/MM/AAAA"/>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+                <input type="hidden" name="amount" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
+                <input type="hidden" name="duration" id="duration" value="1" />
+                <input type="hidden" name="primarylangid" value="fr-FR" />
+                <input type="hidden" name="locationLat" id="locationLat" value="">
+                <input type="hidden" name="locationLng" id="locationLng" value="">
+                <input type="hidden" name="cityname" value="" id="cityname"/>
+                <input type="hidden" name="ville_par_pays" id="ville_aff" value=""/>
+                <div class="clr"></div>
+                <div id="chambre_unique"></div>
+                <div id="lien_occupation" style="display:none;margin-right:10px;">
+                </div>
+        </div>
+        <h2 id="titre_hotels"></h2>
+        <ul class="jScrollbar" id="liste_hotels">
+            <li style="display:none;"></li>
+        </ul>
+    </div>
 {% endblock %}
 
