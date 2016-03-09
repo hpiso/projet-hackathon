@@ -1,6 +1,10 @@
 {% extends 'HackathonFrontBundle::layout.html.twig' %}
 
 {% block content %}
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="test">
+    {{ form_end(form) }}
     <div align="center" class="zoneRecherche">
         <form action="#" method="post" name="">
             <div id="google_autocompleter"></div>
