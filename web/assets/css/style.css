@@ -1,8 +1,9 @@
+#sidebar_div{float:left; width: 33% ; }
 .clr{clear:both;}
 .pageSolutionPro{width:920px; margin:0 auto;}
 .pageSolutionPro .TitrePageNiveau1{background:none; color: #646464; font-family: 'FrutigerLTStd47LightCnBold',verdana,arial; font-size: 26px; margin:0 0 23px; padding: 0; font-weight:normal;}
 .pageSolutionPro .TitrePageNiveau2{background:none; color: #8c96a0; font-family: 'FrutigerLTStd45LightRegular',verdana,arial; font-size: 16px; margin:0; padding: 0; font-weight:normal;}
-.pageSolutionPro .TitrePageNiveau2 a{text-decoration:none; display:block; width:498px; height:32px; padding:8px 0 0 17px; background:url(../../images/spro/bg-titre.png) no-repeat 0 0; color: #8c96a0; font-family: 'FrutigerLTStd45LightRegular',verdana,arial; font-size: 16px;}
+.pageSolutionPro .TitrePageNiveau2 a{text-decoration:none; display:block; width:498px; height:32px; padding:8px 0 0 17px; background:url(http://bestwestern.fr/public/spro/bg-titre.png) no-repeat 0 0; color: #8c96a0; font-family: 'FrutigerLTStd45LightRegular',verdana,arial; font-size: 16px;}
 .pageSolutionPro .TitrePageNiveau2 a:hover, .pageSolutionPro .TitrePageNiveau2 a.actif{background-position:0 -60px; color:#fff;}
 
 .pageSolutionPro .blocContentPage{width:520px; float:left;}
@@ -17,12 +18,12 @@
 .nav .sub_nav.nav-child li:first-child a{border-top:none;}
 .nav .sub_nav.nav-child li a .text{font-size:10px;}
 .nav .sub_nav.nav-child li a span.petitTexte{font-size:8px;}
-.nav .sub_nav.nav-child li.item-118 a{background:url(../../images/spro/pictos-sous-menu.png) no-repeat 10px 27px !important;}
-.nav .sub_nav.nav-child li.item-118 a:hover{background:url(../../images/spro/pictos-sous-menu.png) no-repeat #EAEAEA 10px 27px !important;}
-.nav .sub_nav.nav-child li.item-122 a{background:url(../../images/spro/pictos-sous-menu.png) no-repeat 10px -84px !important;}
-.nav .sub_nav.nav-child li.item-122 a:hover{background:url(../../images/spro/pictos-sous-menu.png) no-repeat #EAEAEA 10px -84px !important;}
-.nav .sub_nav.nav-child li.item-123 a{background:url(../../images/spro/pictos-sous-menu.png) no-repeat 10px -198px !important;}
-.nav .sub_nav.nav-child li.item-123 a:hover{background:url(../../images/spro/pictos-sous-menu.png) no-repeat #EAEAEA 10px -198px !important;}
+.nav .sub_nav.nav-child li.item-118 a{background:url(http://bestwestern.fr/public/spro/pictos-sous-menu.png) no-repeat 10px 27px !important;}
+.nav .sub_nav.nav-child li.item-118 a:hover{background:url(http://bestwestern.fr/public/spro/pictos-sous-menu.png) no-repeat #EAEAEA 10px 27px !important;}
+.nav .sub_nav.nav-child li.item-122 a{background:url(http://bestwestern.fr/public/spro/pictos-sous-menu.png) no-repeat 10px -84px !important;}
+.nav .sub_nav.nav-child li.item-122 a:hover{background:url(http://bestwestern.fr/public/spro/pictos-sous-menu.png) no-repeat #EAEAEA 10px -84px !important;}
+.nav .sub_nav.nav-child li.item-123 a{background:url(http://bestwestern.fr/public/spro/pictos-sous-menu.png) no-repeat 10px -198px !important;}
+.nav .sub_nav.nav-child li.item-123 a:hover{background:url(http://bestwestern.fr/public/spro/pictos-sous-menu.png) no-repeat #EAEAEA 10px -198px !important;}
 .nav-child li:first-child a{border-top:none;}
 .nav-child li a:active, .nav-child li a:focus, .nav-child li a:hover{background-color: #EAEAEA;}
 
