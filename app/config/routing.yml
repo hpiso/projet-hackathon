@@ -3,12 +3,22 @@ hackathon_user:
     type:     annotation
     prefix:   /user
 
-hackathon_api:
-    resource: "@HackathonApiBundle/Controller/"
-    type:     annotation
-    prefix:   /api
-
 hackathon_front:
     resource: "@HackathonFrontBundle/Controller/"
     type:     annotation
     prefix:   /
+
+hotels:
+    type: rest
+    prefix:   /api
+    resource: Hackathon\ApiBundle\Controller\HotelsController
+
+places:
+    type: rest
+    prefix:   /api
+    resource: Hackathon\ApiBundle\Controller\PlacesController
+
+avis:
+    type: rest
+    prefix:   /api
+    resource: Hackathon\ApiBundle\Controller\AvisController

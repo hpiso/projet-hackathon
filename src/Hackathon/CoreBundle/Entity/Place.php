@@ -2,7 +2,9 @@
 
 namespace Hackathon\CoreBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Hackathon\CoreBundle\Entity\PlaceType;
 
 /**
  * Place
@@ -43,6 +45,20 @@ class Place
     private $tel;
 
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="latitude", type="integer", nullable=true)
+     */
+    private $latitude;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="longitude", type="integer", nullable=true)
+     */
+    private $longitude;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="urlSite", type="string", length=255, nullable=true)
@@ -67,6 +83,15 @@ class Place
      * @ORM\JoinColumn(name="place_type_id", referencedColumnName="id")
      */
     private $placeType;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Avis", mappedBy="place")
+     */
+    private $avis;
+
+    public function __construct() {
+        $this->avis = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -199,7 +224,7 @@ class Place
      * @param \Hackathon\CoreBundle\Entity\Hotel $hotel
      * @return Place
      */
-    public function setHotel(\Hackathon\CoreBundle\Entity\Hotel $hotel = null)
+    public function setHotel(Hotel $hotel = null)
     {
         $this->hotel = $hotel;
 
@@ -222,7 +247,7 @@ class Place
      * @param \Hackathon\CoreBundle\Entity\PlaceType $placeType
      * @return Place
      */
-    public function setPlaceType(\Hackathon\CoreBundle\Entity\PlaceType $placeType = null)
+    public function setPlaceType(PlaceType $placeType = null)
     {
         $this->placeType = $placeType;
 
@@ -237,5 +262,84 @@ class Place
     public function getPlaceType()
     {
         return $this->placeType;
+    }
+
+    /**
+     * Remove avis
+     *
+     * @param \Hackathon\CoreBundle\Entity\Place $avis
+     */
+    public function removeAvi(Place $avis)
+    {
+        $this->avis->removeElement($avis);
+    }
+
+    /**
+     * Add avis
+     *
+     * @param \Hackathon\CoreBundle\Entity\Avis $avis
+     * @return Place
+     */
+    public function addAvi(Avis $avis)
+    {
+        $this->avis[] = $avis;
+
+        return $this;
+    }
+
+    /**
+     * Get avis
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAvis()
+    {
+        return $this->avis;
+    }
+
+    /**
+     * Set latitude
+     *
+     * @param integer $latitude
+     * @return Place
+     */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    /**
+     * Get latitude
+     *
+     * @return integer 
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * Set longitude
+     *
+     * @param integer $longitude
+     * @return Place
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * Get longitude
+     *
+     * @return integer 
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
     }
 }

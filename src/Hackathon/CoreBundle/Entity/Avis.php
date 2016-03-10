@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Avis
- *
  * @ORM\Table(name="avis")
  * @ORM\Entity(repositoryClass="Hackathon\CoreBundle\Repository\AvisRepository")
  */
@@ -43,7 +42,7 @@ class Avis
     private $note;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Place")
+     * @ORM\ManyToOne(targetEntity="Place", inversedBy="avis")
      * @ORM\JoinColumn(name="place_id", referencedColumnName="id")
      */
     private $place;

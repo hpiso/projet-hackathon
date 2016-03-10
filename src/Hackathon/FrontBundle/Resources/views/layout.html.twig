@@ -22,6 +22,38 @@
     <script>
         $(document).ready(function() {
             $(".overlay-bg-black").css("height", $("#photo_hotel").height());
+            $(".div_place_btn").hide();
+
+            $('#up_btn').on('click', function(){
+                $("html, body").animate({ scrollTop: 0 }, "slow");
+            });
+            $('.div_place').on('hover', function(){
+                var id = $(this).attr('data-id');
+                $("#"+id).stop();
+                $("#"+id).toggle(500);
+            } );
+
+            var scroll = $(window).scrollTop();
+            if (scroll>260) {
+                $('#up_btn').show(300);
+            } else {
+                $('#up_btn').hide(300);
+            }
+        });
+
+        $(window).resize(function(){
+            $(".overlay-bg-black").css("height", $("#photo_hotel").height());
+        });
+
+        $(window).scroll(function (event) {
+            var scroll = $(window).scrollTop();
+            if (scroll>260) {
+                console.log($("html, body").scrollTop());
+                $('#up_btn').css('top', $(window).scrollTop()-260);
+                $('#up_btn').show(300);
+            } else {
+                $('#up_btn').hide(300);
+            }
         });
 
     </script>
@@ -35,5 +67,8 @@
     </div>
 </div>
 {% include 'HackathonFrontBundle::Common/footer.html.twig' %}
+
+{% block javascript %}
+{% endblock %}
 </body>
 </html>

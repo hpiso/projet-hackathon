@@ -15,19 +15,23 @@ class LoadPlaceTypeData extends AbstractFixture implements FixtureInterface, Ord
         $types = [
             [
                 'nom' => 'sport',
-                'description' => 'Les équipements sportifs de petite ou grande envergure'
+                'description' => 'Les équipements sportifs de petite ou grande envergure',
+                'icon' => 'icon-sport.png'
             ],
             [
                 'nom' => 'gastronomie',
-                'description' => 'Les meilleurs restaurents'
+                'description' => 'Les meilleurs restaurents',
+                'icon' => 'icon-gastronomie.png'
             ],
             [
                 'nom' => 'culture',
-                'description' => 'Les musées, les expositions etc.'
+                'description' => 'Les musées, les expositions etc.',
+                'icon' => 'icon-culture.png'
             ],
             [
                 'nom' => 'bar',
-                'description' => 'Les meilleurs endroits pour boire un verre'
+                'description' => 'Les meilleurs endroits pour boire un verre',
+                'icon' => 'icon-bar.png'
             ],
         ];
 

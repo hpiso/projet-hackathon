@@ -17,16 +17,22 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $formSearch = $this->createForm(new FilterType(), null);
+        $formSearch = $this->createForm(new FilterType(), null, array('action' => '#center_div'));
         $formSearch->handleRequest($request);
 
         $formAvis = $this->createForm(new AvisType(), null);
         $formAvis->handleRequest($request);
 
         $hotel = null;
+        $places = null;
 
         if ($formSearch->isValid()) {
             $hotel = $formSearch->getData();
+
+            $em = $this->getDoctrine()->getManager();
+            $places = $em->getRepository('HackathonCoreBundle:Place')->findBy([
+                'hotel' => $hotel
+            ]);
         }
 
         if ($formAvis->isValid()) {
@@ -68,8 +74,9 @@ class DefaultController extends Controller
         }
 
         return $this->render('HackathonFrontBundle:Default:index.html.twig', [
-            'form' => $formSearch->createView(),
-            'hotel' => $hotel['Recherche'],
+            'form'   => $formSearch->createView(),
+            'hotel'  => $hotel,
+            'places' => $places,
             'formAvis' =>$formAvis->createView()
         ]);
     }
