@@ -2,8 +2,10 @@
 
 {% if hotel %}
     {% set hotelAddress = hotel.address %}
+    {% set hotelId = hotel.id %}
 {% else %}
     {% set hotelAddress = 'Sydney' %}
+    {% set hotelId = null %}
 {% endif %}
 
 {% block content %}
@@ -150,20 +152,22 @@
                 </div>
                 <hr>
             {% endfor %}
-
         </div>
         {% endif %}
     </div>
+    <div style="height: 100%;" id="map"></div>
+{% endblock %}
+
+
+{% block javascript %}
     <script>
         $('#addComment').on('click', function(){
             $('#formComment').css("display","block");
             $('#addComment').hide();
         });
     </script>
-{% endblock %}
 
-
-{% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script>
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -174,7 +178,6 @@
             var geocoder = new google.maps.Geocoder();
             geocodeAddress(geocoder, map);
             setMarkers(map);
-
         }
 
         function geocodeAddress(geocoder, resultsMap) {
@@ -187,7 +190,8 @@
                     resultsMap.setZoom(14);
                     var marker = new google.maps.Marker({
                         map: resultsMap,
-                        position: results[0].geometry.location
+                        position: results[0].geometry.location,
+                        icon:"{{ asset('assets/image/icons/icon-hotel.png') }}"
                     });
 
                 } else {
@@ -197,38 +201,25 @@
         }
 
         function setMarkers(map) {
+            var pathOrigin = window.location.origin ;
+            var pathIcons  = pathOrigin + '/assets/image/icons/';
 
-            var places = [
-                ['Le Café des Chats', 48.856614, 2.3522219000000177],
-                ['Chez Janou', 48.85656609999999, 2.3673096999999643]
-            ];
+            $.ajax({
+                url: pathOrigin + "/app_dev.php/api/hotels/{{ hotelId }}/places.json"
+            }).done(function(data) {
+                var places = data.places;
 
-            var image = {
-                url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-                // This marker is 20 pixels wide by 32 pixels high.
-                size: new google.maps.Size(20, 32),
-                // The origin for this image is (0, 0).
-                origin: new google.maps.Point(0, 0),
-                // The anchor for this image is the base of the flagpole at (0, 32).
-                anchor: new google.maps.Point(0, 32)
-            };
-            // Shapes define the clickable region of the icon. The type defines an HTML
-            // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-            // The final coordinate closes the poly by connecting to the first coordinate.
-            var shape = {
-                coords: [1, 1, 1, 20, 18, 20, 18, 1],
-                type: 'poly'
-            };
-            for (var i = 0; i < places.length; i++) {
-                var place = places[i];
-                var marker = new google.maps.Marker({
-                    position: {lat: place[1], lng: place[2]},
-                    map: map,
-                    icon: image,
-                    shape: shape,
-                    title: place[0]
-                });
-            }
+                for (var i = 0; i < places.length; i++) {
+                    var place = places[i];
+                    var marker = new google.maps.Marker({
+                        position: {lat: place.latitude, lng: place.longitude},
+                        map: map,
+                        title: place.name,
+                        icon: pathIcons + place.type.icon
+                    });
+                }
+            });
+
         }
     </script>
 

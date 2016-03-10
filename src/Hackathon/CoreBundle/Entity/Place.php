@@ -47,14 +47,14 @@ class Place
     /**
      * @var integer
      *
-     * @ORM\Column(name="latitude", type="integer", nullable=true)
+     * @ORM\Column(name="latitude", type="float", nullable=true)
      */
     private $latitude;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="longitude", type="integer", nullable=true)
+     * @ORM\Column(name="longitude", type="float", nullable=true)
      */
     private $longitude;
 

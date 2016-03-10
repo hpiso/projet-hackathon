@@ -27,7 +27,7 @@ class DefaultController extends Controller
         $places = null;
 
         if ($formSearch->isValid()) {
-            $hotel = $formSearch->getData();
+            $hotel = $formSearch->getData()['Recherche'];
 
             $em = $this->getDoctrine()->getManager();
             $places = $em->getRepository('HackathonCoreBundle:Place')->findBy([
@@ -71,7 +71,9 @@ class DefaultController extends Controller
                 );
                 die($e);
             }
+            dump($hotel);die;
         }
+
 
         return $this->render('HackathonFrontBundle:Default:index.html.twig', [
             'form'   => $formSearch->createView(),

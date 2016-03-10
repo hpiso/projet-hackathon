@@ -45,8 +45,10 @@ class PlacesController extends FOSRestController
             ->getRepository('HackathonCoreBundle:Place')
             ->findAll();
 
+        $datas = [];
         foreach ($places as $key => $place)
         {
+            /** @var $place Place */
             $data[] = [
                 'id' => $place->getId(),
                 'name' => $place->getName(),
@@ -59,18 +61,18 @@ class PlacesController extends FOSRestController
                     [
                         'id' => $place->getPlaceType()->getId(),
                         'name' => $place->getPlaceType()->getName(),
-//                        'icon' => $place->getPlaceType()->getIcon(),
+                        'icon' => $place->getPlaceType()->getIcon(),
                     ],
-                'avis' => count($place->getAvis())
-//                'longitude' => $place->getLongitude(),
-//                'latitude' => $place->getLatitude(),
+                'avis' => count($place->getAvis()),
+                'longitude' => $place->getLongitude(),
+                'latitude' => $place->getLatitude(),
             ];
         }
 
         $view = View::create([], 200);
         $view->setData([
             'count' => count($places),
-            'places' => $data,
+            'places' => $datas,
         ]);
 
         $handler = $this->get('fos_rest.view_handler');

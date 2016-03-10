@@ -35,25 +35,27 @@ class HotelsController extends FOSRestController
             'hotel' => $hotel
         ]);
 
+        $datas = [];
         foreach ($places as $key => $place)
         {
-            $data[] = [
+            $datas[] = [
                 'id' => $place->getId(),
                 'name' => $place->getName(),
                 'type' =>
                     [
                         'id' => $place->getPlaceType()->getId(),
-                        'name' => $place->getPlaceType()->getName()
+                        'name' => $place->getPlaceType()->getName(),
+                        'icon' => $place->getPlaceType()->getIcon(),
                     ],
-//                'longitude' => $place->getLongitude(),
-//                'latitude' => $place->getLatitude(),
+                'longitude' => $place->getLongitude(),
+                'latitude' => $place->getLatitude(),
             ];
         }
 
         $view = View::create([], 200);
         $view->setData([
             'count' => count($places),
-            'places' => $data,
+            'places' => $datas,
         ]);
 
         $handler = $this->get('fos_rest.view_handler');
