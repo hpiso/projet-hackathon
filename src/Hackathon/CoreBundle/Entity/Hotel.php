@@ -2,6 +2,7 @@
 
 namespace Hackathon\CoreBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,14 +43,14 @@ class Hotel
      */
     private $slug;
 
-//    /**
-//     * @ORM\OneToMany(targetEntity="Place", mappedBy="hotel")
-//     */
-//    private $places;
-//
-//    public function __construct() {
-//        $this->places = new ArrayCollection();
-//    }
+    /**
+     * @ORM\OneToMany(targetEntity="Place", mappedBy="hotel")
+     */
+    private $places;
+
+    public function __construct() {
+        $this->places = new ArrayCollection();
+    }
 
     /**
      * Get id
