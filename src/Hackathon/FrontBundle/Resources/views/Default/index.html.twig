@@ -5,7 +5,7 @@
     {% set hotelId = hotel.id %}
 {% else %}
     {% set hotelAddress = 'Sydney' %}
-    {% set hotelId = hotel.id %}
+    {% set hotelId = 12 %}
 {% endif %}
 
 {% block content %}
@@ -56,14 +56,7 @@
             </li>
         </ul>
     </div>
-
-
-
-
     <div id="center_div">
-        <div id="up_btn" style="position: absolute;top:0px;left:49%;z-index:100;cursor: pointer;">
-            <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjY0cHgiIGhlaWdodD0iNjRweCIgdmlld0JveD0iMCAwIDMwNy4wNTQgMzA3LjA1NCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzA3LjA1NCAzMDcuMDU0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGcgaWQ9Il94MzRfODUuX1VwIj4KCQk8Zz4KCQkJPHBhdGggZD0iTTMwMi40NDUsMjA1Ljc4OEwxNjQuNjMsNjcuOTU5Yy02LjEzNi02LjEzLTE2LjA3NC02LjEzLTIyLjIwMywwTDQuNTk3LDIwNS43ODhjLTYuMTI5LDYuMTMyLTYuMTI5LDE2LjA2OSwwLDIyLjIwMSAgICAgbDExLjEwMSwxMS4xMDFjNi4xMjksNi4xMzYsMTYuMDc2LDYuMTM2LDIyLjIwOSwwbDExNS42Mi0xMTUuNjI2TDI2OS4xNTEsMjM5LjA5YzYuMTI4LDYuMTM2LDE2LjA3LDYuMTM2LDIyLjIwMSwwICAgICBsMTEuMTAxLTExLjEwMUMzMDguNTg5LDIyMS44NSwzMDguNTg5LDIxMS45MiwzMDIuNDQ1LDIwNS43ODh6IiBmaWxsPSIjNzM5ZGQxIi8+CgkJPC9nPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
-        </div>
         {% if(hotel!=null) %}
         <div id="left_div" style="overflow: scroll;">
             <img src="http://www.bestwestern.fr/public/images/homePage/V2/bgQ60-small.jpg" id="photo_hotel" style="width: 100%;">
