@@ -23,13 +23,20 @@ class LoadHotelData extends AbstractFixture implements FixtureInterface, Ordered
         $hotel2->setAddress('36 Boulevard Richard Lenoir, 75011 Paris');
         $hotel2->setSlug('best-western-hotel-marais-bastille');
 
+        $hotel3 = new Hotel();
+        $hotel3->setName('Best Western Hostellerie du Vallon');
+        $hotel3->setAddress('12 Rue Sylvestre Lasserre, 14360 Trouville-sur-Mer');
+        $hotel3->setSlug('best-western-hostellerie-du-vallon');
+
         $objectManager->persist($hotel);
         $objectManager->persist($hotel2);
+        $objectManager->persist($hotel3);
 
         $objectManager->flush();
 
         $this->addReference('hotel-aurore',$hotel);
         $this->addReference('hotel-bastille',$hotel2);
+        $this->addReference('hotel-vallon',$hotel3);
     }
 
     public function getOrder()
