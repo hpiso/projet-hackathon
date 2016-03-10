@@ -31,7 +31,7 @@ class PlaceType
     /**
      * @var string
      *
-     * @ORM\Column(name="icon", type="string", length=100)
+     * @ORM\Column(name="icon", type="string", length=100, nullable=true)
      */
     private $icon;
 
