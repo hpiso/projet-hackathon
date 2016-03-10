@@ -2,9 +2,12 @@
 
 namespace Hackathon\FrontBundle\Controller;
 
+use Hackathon\CoreBundle\Entity\Avis;
 use Hackathon\CoreBundle\Form\FilterType;
+use Hackathon\CoreBundle\Form\AvisType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -14,13 +17,17 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $form = $this->createForm(new FilterType(), null, array('action' => '#center_div'));
-        $form->handleRequest($request);
+        $formSearch = $this->createForm(new FilterType(), null, array('action' => '#center_div'));
+        $formSearch->handleRequest($request);
+
+        $formAvis = $this->createForm(new AvisType(), null);
+        $formAvis->handleRequest($request);
+
         $hotel = null;
         $places = null;
 
-        if ($form->isValid()) {
-            $hotel = $form->getData()['Recherche'];
+        if ($formSearch->isValid()) {
+            $hotel = $formSearch->getData();
 
             $em = $this->getDoctrine()->getManager();
             $places = $em->getRepository('HackathonCoreBundle:Place')->findBy([
@@ -28,10 +35,49 @@ class DefaultController extends Controller
             ]);
         }
 
+        if ($formAvis->isValid()) {
+            $avis = new Avis();
+
+            $data = $formAvis->getData();
+
+            $avis->setDescription($data['Avis']);
+            $avis->setNote($data['Note']);
+            $avis->setDate(new \Datetime());
+
+
+            try{
+                $repository = $this->getDoctrine()
+                    ->getManager()
+                    ->getRepository('HackathonCoreBundle:Place')
+                ;
+                $place = $repository->find(10);
+
+                $avis->setPlace($place);
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($avis);
+
+                $em->flush();
+
+                $this->addFlash(
+                    'notice',
+                    'Votre avis a été ajouté !'
+                );
+            } catch(Exception $e) {
+
+                $this->addFlash(
+                    'Error',
+                    'Votre avis n\'a pas été ajouté!'
+                );
+                die($e);
+            }
+        }
+
         return $this->render('HackathonFrontBundle:Default:index.html.twig', [
-            'form'   => $form->createView(),
+            'form'   => $formSearch->createView(),
             'hotel'  => $hotel,
-            'places' => $places
+            'places' => $places,
+            'formAvis' =>$formAvis->createView()
         ]);
     }
 
