@@ -71,65 +71,23 @@
                     </p>
                 </div>
             </div>
-
-
-            {#BLOCK DES AVIS#}
-
-
-
-            {#<div style="padding: 15px; ">#}
-                {#<div style="width: 25%; display: inline-block;">#}
-                    {#<img src="http://www.arabnewtech.com/wp-content/uploads/avatar-1.png" style="width: 100%;">#}
-                    {#<p style="font-family: 'Verdana'; text-align: center">#}
-                        {#Alain Deloin#}
-                    {#</p>#}
-                    {#<p style="font-size: 8px;color:gray;">#}
-                        {#il y a 1 mois#}
-                    {#</p>#}
-                {#</div>#}
-                {#<div style="width: 70%;display: inline-block;vertical-align:top;padding-left: 10px;">#}
-                {#<div>#}
-                {#<img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >#}
-                {#<img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >#}
-                {#<img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >#}
-                {#<img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >#}
-                {#<img class="alignnone  wp-image-148" style="border: 0px;" title="etoile moitié pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-moitié-pleine-peripeties-infirmiere.jpg" alt="etoile moitié pleine peripeties infirmiere" width="24">#}
-                {#<p style="font-family: 'Verdana';font-size: 8px;display: inline-block;">51 avis</p>#}
-                {#</div>#}
-                {#<div style="padding-top: 15px;">#}
-                {#<h5 style="font-family: 'Trebuchet MS'">Excellent ! <small style="font-size: 11px;font-family: 'Trebuchet MS';color: #8F8F8F;">Un rapport qualité prix nickel</small></h5>#}
-                {#</div>#}
-                {#<div style="padding-top: 15px;">#}
-                {#<p style="font-family: 'Verdana';font-size: 10px;text-align: justify;">#}
-                {#Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.#}
-                {#</p>#}
-                {#</div>#}
-                {#</div>#}
-            {#</div>#}
             {% for place in places %}
                 <div style="padding: 15px;" class="div_place" data-id="place_btn_{{ place.id }}">
                     <div style="width: 30%; display: inline-block;">
                         <img src="http://www.chateaueza.com/media/hotel-chateau-eza-imageLinkchateau-eza-restaurant11.jpg" style="width: 100%;">
                         <p style="text-align: center; padding-top:5px;">
-                            <a style="font-size: 8.5px;color:gray;" href="{{ place.urlSite }}">Voir le site</a>
+                            {{ place.avis.count }} avis
                         </p>
                     </div>
                     <div style="width: 65%;display: inline-block;vertical-align:top;padding-left: 10px;">
                         <div>
-                            <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >
-                            <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >
-                            <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >
-                            <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >
-                            <img class="alignnone  wp-image-148" style="border: 0px;" title="etoile moitié pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-moitié-pleine-peripeties-infirmiere.jpg" alt="etoile moitié pleine peripeties infirmiere" width="24">
-                            <p style="font-family: 'Verdana';font-size: 8px;display: inline-block;">{{ place.avis.count }} avis</p>
+                            <h5 style="font-family: 'Trebuchet MS'">{{ place.name }} <small style="font-size: 11px;font-family: 'Trebuchet MS';color: #8F8F8F;">{{ place.placeType.name }}</small></h5>
+                            <p style="font-style: italic; font-size: 12px;">{{ place.tel }}</p>
                         </div>
                         <div style="padding-top: 8px;">
                             <p style=" font-size: 10px;">{{ place.address }}</p>
                         </div>
-                        <div style="padding-top: 15px;">
-                            <h5 style="font-family: 'Trebuchet MS'">{{ place.name }} <small style="font-size: 11px;font-family: 'Trebuchet MS';color: #8F8F8F;">{{ place.placeType.name }}</small></h5>
-                            <p style="font-style: italic; font-size: 12px;">{{ place.tel }}</p>
-                        </div>
+
                         <div style="padding-top: 15px;">
                             <p style="font-family: 'Verdana';font-size: 11.5px;text-align: justify;">
                                 {{ place.description }}
