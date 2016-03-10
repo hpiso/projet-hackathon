@@ -24,7 +24,7 @@ class DefaultController extends Controller
 
         return $this->render('HackathonFrontBundle:Default:index.html.twig', [
             'form' => $form->createView(),
-            'hotel' => $hotel
+            'hotel' => $hotel['Recherche']
         ]);
     }
 }
