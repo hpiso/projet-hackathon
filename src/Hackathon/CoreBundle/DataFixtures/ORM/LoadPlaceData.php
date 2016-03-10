@@ -26,8 +26,8 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
 
         $place2 = new Place();
         $place2->setName('Chez Janou');
-        $place->setLatitude(48.85656609999999);
-        $place->setLongitude(2.3673096999999643);
+        $place2->setLatitude(48.85656609999999);
+        $place2->setLongitude(2.3673096999999643);
         $place2->setDescription('Autour d\'un comptoir central, ce bistrop provençal avec terrasse propose une carte sobre et plus de 80 pastis');
         $place2->setAddress('2 Rue Roger Verlomme, 75003 Paris');
         $place2->setTel('01 42 72 28 41');
@@ -38,6 +38,8 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
 
         $place3 = new Place();
         $place3->setName('Comédie Bastille');
+        $place3->setLatitude(48.8588897);
+        $place3->setLongitude(2.3702562999999373);
         $place3->setDescription('Ce théâtre, ancien atelier de menuiserie, accueille comédies, one-man-shows et concerts pour enfants.');
         $place3->setAddress('5 Rue Nicolas Appert, 75011 Paris');
         $place3->setTel('01 48 07 52 07');
@@ -48,6 +50,8 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
 
         $place4 = new Place();
         $place4->setName('Piscine de la Cour des Lions');
+        $place4->setLatitude(48.86065929999999);
+        $place4->setLongitude(2.3703734000000622);
         $place4->setDescription('Une piscine parisienne classique');
         $place4->setAddress('9 Rue Alphonse Baudin, 75011 Paris');
         $place4->setTel('01 43 55 09 23');

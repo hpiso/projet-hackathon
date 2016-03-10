@@ -143,8 +143,6 @@
                 </div>
                 <hr>
             {% endfor %}
-
-
         </div>
         {% endif %}
     </div>
@@ -154,16 +152,7 @@
 
 
 {% block javascript %}
-    {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>#}
-    {#<script>#}
-        {#var url = 'http://hackathon.local/app_dev.php/api/hotels/12/places';#}
-        {#$.ajax({#}
-            {#dataType: "json",#}
-            {#url: url,#}
-            {#success: success#}
-        {#});#}
-        {#console.log(success);#}
-    {#</script>#}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script>
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -186,7 +175,8 @@
                     resultsMap.setZoom(14);
                     var marker = new google.maps.Marker({
                         map: resultsMap,
-                        position: results[0].geometry.location
+                        position: results[0].geometry.location,
+                        icon:"{{ asset('assets/image/icons/icon-hotel.png') }}"
                     });
 
                 } else {
@@ -196,6 +186,12 @@
         }
 
         function setMarkers(map) {
+
+            $.ajax({
+                url: 'http://hackathon.local/app_dev.php/api/hotels/12/places.json'
+            }).done(function(data) {
+                console.log(data.places[0]);
+            });
 
             var places = [
                 ['Le Café des Chats', 48.856614, 2.3522219000000177],
