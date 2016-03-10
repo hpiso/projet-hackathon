@@ -1,6 +1,7 @@
 {% extends 'HackathonFrontBundle::layout.html.twig' %}
 
 {% block content %}
+    <div id="popup"></div>
     <div align="center" class="zoneRecherche">
         <div id="google_autocompleter"></div>
         <div class="blocRecherche">
@@ -136,8 +137,8 @@
                         </div>
                     </div>
                     <div class="div_place_btn" id="place_btn_{{ place.id }}" style="text-align: center; padding-top: 15px">
-                        <button class="btnForm" id="rechercher">
-                            Votre avis
+                        <button class="btnForm btnVoirAvis" data-id="{{ place.id }}" id="rechercher">
+                            Voir les avis
                         </button>
                     </div>
                 </div>
@@ -152,10 +153,40 @@
 
 {% block javascript %}
     <script>
-        $('#addComment').on('click', function(){
-            $('#formComment').css("display","block");
-            $('#addComment').hide();
+
+        $(".overlay-bg-black").css("height", $("#photo_hotel").height());
+        $(".div_place_btn").hide();
+
+        $('#up_btn').on('click', function(){
+            $("html, body").animate({ scrollTop: 0 }, "slow");
         });
+        $('.div_place').on('hover', function(){
+            var id = $(this).attr('data-id');
+            $("#"+id).stop();
+            $("#"+id).toggle(500);
+        } );
+
+        var scroll = $(window).scrollTop();
+        if (scroll>260) {
+            $('#up_btn').show(300);
+        } else {
+            $('#up_btn').hide(300);
+        }
+
+        $('.btnVoirAvis').click(function(){
+            var id = $(this).data('id');
+            $.ajax({
+                type : 'POST',
+                url : '{{  path('popup-avis') }}',
+                data: 'place_id='+id,
+                success : function(data){
+                    $('#popup').html(data);
+                }, error : function(XMLHttpRequest, textStatus, errorThrown) {
+                    $('#popup').html('Une erreur est survenue !');
+                }
+            });
+        });
+
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
