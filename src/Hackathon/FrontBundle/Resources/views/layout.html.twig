@@ -22,6 +22,17 @@
     <script>
         $(document).ready(function() {
             $(".overlay-bg-black").css("height", $("#photo_hotel").height());
+            $(".div_place_btn").hide();
+            $('.div_place').on('hover', function(){
+                var id = $(this).attr('data-id');
+                console.log(id);
+                $("#"+id).stop();
+                $("#"+id).toggle(500);
+            } );
+        });
+
+        $(window).resize(function(){
+            $(".overlay-bg-black").css("height", $("#photo_hotel").height());
         });
 
     </script>
