@@ -4,10 +4,10 @@
     $('#addComment').hide();
     });
 </script>
-<div id="fade" class="black_overlay"></div>
+<div id="fade" class="black_overlay" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"></div>
 <div class="white_content" id="light">
     <a href = "javascript:void(0)" style="padding: 5px" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">X</a>
-    <div style="text-align: center;">
+    <div style="text-align: center;padding-bottom: 15px;">
         <div class="formComment" id="formComment" style="display: none;">
             {{ form_start(formAvis) }}
             {{ form_widget(formAvis) }}

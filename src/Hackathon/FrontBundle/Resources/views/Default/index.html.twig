@@ -180,6 +180,7 @@
                 url : '{{  path('popup-avis') }}',
                 data: 'place_id='+id,
                 success : function(data){
+                    $("html, body").animate({ scrollTop: 150 }, "fast");
                     $('#popup').html(data);
                 }, error : function(XMLHttpRequest, textStatus, errorThrown) {
                     $('#popup').html('Une erreur est survenue !');
