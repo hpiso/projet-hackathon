@@ -35,7 +35,7 @@ class DefaultController extends Controller
             ]);
         }
 
-        if ($formAvis->isValid()) {
+        if ($formAvis->getData()!=null) {
             $avis = new Avis();
 
             $data = $formAvis->getData();
@@ -50,7 +50,8 @@ class DefaultController extends Controller
                     ->getManager()
                     ->getRepository('HackathonCoreBundle:Place')
                 ;
-                $place = $repository->find(10);
+                $place = $repository->find($formAvis->getExtraData()['placeId']);
+
 
                 $avis->setPlace($place);
 
@@ -69,17 +70,14 @@ class DefaultController extends Controller
                     'Error',
                     'Votre avis n\'a pas été ajouté!'
                 );
-                die($e);
             }
-            dump($hotel);die;
         }
 
 
         return $this->render('HackathonFrontBundle:Default:index.html.twig', [
             'form'   => $formSearch->createView(),
             'hotel'  => $hotel,
-            'places' => $places,
-            'formAvis' =>$formAvis->createView()
+            'places' => $places
         ]);
     }
 
@@ -88,7 +86,21 @@ class DefaultController extends Controller
      */
     public function popupAction(Request $request)
     {
+        $place_id = $request->request->get('place_id');
 
-        return $this->render('HackathonFrontBundle:Default:popup.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $place = $em->getRepository('HackathonCoreBundle:Place')->find($place_id);
+        $avis = $em->getRepository('HackathonCoreBundle:Avis')->findBy(['place'=>$place]);
+
+        $formAvis = $this->createForm(new AvisType(), null);
+        $formAvis->handleRequest($request);
+
+
+
+        return $this->render('HackathonFrontBundle:Default:popup.html.twig', [
+            'avis'      => $avis,
+            'formAvis'  =>$formAvis->createView(),
+            'placeId'   => $place_id
+        ]);
     }
 }
