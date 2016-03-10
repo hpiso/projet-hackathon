@@ -2,8 +2,10 @@
 
 {% if hotel %}
     {% set hotelAddress = hotel.address %}
+    {% set hotelId = hotel.id %}
 {% else %}
     {% set hotelAddress = 'Sydney' %}
+    {% set hotelId = hotel.id %}
 {% endif %}
 
 {% block content %}
@@ -152,6 +154,16 @@
 
 
 {% block javascript %}
+    {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>#}
+    {#<script>#}
+        {#var url = 'http://hackathon.local/app_dev.php/api/hotels/12/places';#}
+        {#$.ajax({#}
+            {#dataType: "json",#}
+            {#url: url,#}
+            {#success: success#}
+        {#});#}
+        {#console.log(success);#}
+    {#</script>#}
     <script>
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -162,7 +174,6 @@
             var geocoder = new google.maps.Geocoder();
             geocodeAddress(geocoder, map);
             setMarkers(map);
-
         }
 
         function geocodeAddress(geocoder, resultsMap) {
