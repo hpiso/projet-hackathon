@@ -44,16 +44,16 @@ class Place
     private $tel;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="latitude", type="string", length=100, nullable=true)
+     * @ORM\Column(name="latitude", type="integer", nullable=true)
      */
     private $latitude;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="longitude", type="string", length=100, nullable=true)
+     * @ORM\Column(name="longitude", type="integer", nullable=true)
      */
     private $longitude;
 
@@ -299,7 +299,7 @@ class Place
     /**
      * Set latitude
      *
-     * @param string $latitude
+     * @param integer $latitude
      * @return Place
      */
     public function setLatitude($latitude)
@@ -312,7 +312,7 @@ class Place
     /**
      * Get latitude
      *
-     * @return string 
+     * @return integer 
      */
     public function getLatitude()
     {
@@ -322,7 +322,7 @@ class Place
     /**
      * Set longitude
      *
-     * @param string $longitude
+     * @param integer $longitude
      * @return Place
      */
     public function setLongitude($longitude)
@@ -335,7 +335,7 @@ class Place
     /**
      * Get longitude
      *
-     * @return string 
+     * @return integer 
      */
     public function getLongitude()
     {
