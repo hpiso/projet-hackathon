@@ -60,10 +60,24 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
         $place4->setPlaceType($this->getReference('placetype-sport'));
         $this->addReference('place-lions',$place4);
 
+        $place5 = new Place();
+        $place5->setName('Le Red House');
+        $place5->setLatitude(48.85062619999999);
+        $place5->setLongitude(2.380143999999973);
+        $place5->setDescription('Bois sombre et pierres apparentes forment le décor de ce
+         petit bar proposant cocktails et soirées à thème.');
+        $place5->setAddress('1 Rue de la Forge Royale, 75011');
+        $place5->setTel('01 43 67 06 43');
+        $place5->setUrlSite('https://www.facebook.com/pages/Red-House/157254821011789');
+        $place5->setHotel($this->getReference('hotel-bastille'));
+        $place5->setPlaceType($this->getReference('placetype-bar'));
+        $this->addReference('place-house',$place5);
+
         $objectManager->persist($place);
         $objectManager->persist($place2);
         $objectManager->persist($place3);
         $objectManager->persist($place4);
+        $objectManager->persist($place5);
 
         /********************************************************************/
 
