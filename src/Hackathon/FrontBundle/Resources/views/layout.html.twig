@@ -39,6 +39,23 @@
             } else {
                 $('#up_btn').hide(300);
             }
+
+            $('.btnVoirAvis').click(function(){
+                $.ajax({
+                    type : 'POST',
+                    url : '{{  path('popup-avis') }}',
+                    data: '',
+                    success : function(data){
+                        $('#loading').hide();
+                        $('#popup').html(data);
+                    }, error : function(XMLHttpRequest, textStatus, errorThrown) {
+                        $('#loading').hide();
+                        $('#popup').html('Une erreur est survenue !');
+                    }
+                });
+            });
+
+
         });
 
         $(window).resize(function(){

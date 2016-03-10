@@ -34,4 +34,13 @@ class DefaultController extends Controller
             'places' => $places
         ]);
     }
+
+    /**
+     * @Route("/popup", name="popup-avis")
+     */
+    public function popupAction(Request $request)
+    {
+
+        return $this->render('HackathonFrontBundle:Default:popup.html.twig');
+    }
 }
