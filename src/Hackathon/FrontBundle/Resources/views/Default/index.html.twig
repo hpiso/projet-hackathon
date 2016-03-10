@@ -186,47 +186,25 @@
         }
 
         function setMarkers(map) {
+            var pathOrigin = window.location.origin ;
+            var pathIcons  = pathOrigin + '/assets/image/icons/';
 
             $.ajax({
-                url: 'http://hackathon.local/app_dev.php/api/hotels/12/places.json'
+                url: pathOrigin + "/app_dev.php/api/hotels/{{ hotelId }}/places.json"
             }).done(function(data) {
-                console.log(data.places[0]);
+                var places = data.places;
+
+                for (var i = 0; i < places.length; i++) {
+                    var place = places[i];
+                    var marker = new google.maps.Marker({
+                        position: {lat: place.latitude, lng: place.longitude},
+                        map: map,
+                        title: place.name,
+                        icon: pathIcons + place.type.icon
+                    });
+                }
             });
 
-            var places = [
-                ['Le Café des Chats', 48.856614, 2.3522219000000177],
-                ['Chez Janou', 48.85656609999999, 2.3673096999999643],
-                ['Comédie Bastille', 48.8588897, 2.3702562999999373],
-                ['Piscine de la Cour des Lions', 48.86065929999999, 2.3703734000000622],
-
-            ];
-
-            var image = {
-                url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-                // This marker is 20 pixels wide by 32 pixels high.
-                size: new google.maps.Size(20, 32),
-                // The origin for this image is (0, 0).
-                origin: new google.maps.Point(0, 0),
-                // The anchor for this image is the base of the flagpole at (0, 32).
-                anchor: new google.maps.Point(0, 32)
-            };
-            // Shapes define the clickable region of the icon. The type defines an HTML
-            // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-            // The final coordinate closes the poly by connecting to the first coordinate.
-            var shape = {
-                coords: [1, 1, 1, 20, 18, 20, 18, 1],
-                type: 'poly'
-            };
-            for (var i = 0; i < places.length; i++) {
-                var place = places[i];
-                var marker = new google.maps.Marker({
-                    position: {lat: place[1], lng: place[2]},
-                    map: map,
-                    icon: image,
-                    shape: shape,
-                    title: place[0]
-                });
-            }
         }
     </script>
 
