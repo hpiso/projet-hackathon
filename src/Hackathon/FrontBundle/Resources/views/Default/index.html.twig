@@ -1,13 +1,5 @@
 {% extends 'HackathonFrontBundle::layout.html.twig' %}
 
-{% if hotel %}
-    {% set hotelAddress = hotel.address %}
-    {% set hotelId = hotel.id %}
-{% else %}
-    {% set hotelAddress = 'Sydney' %}
-    {% set hotelId = null %}
-{% endif %}
-
 {% block content %}
     <div align="center" class="zoneRecherche">
         <div id="google_autocompleter"></div>
@@ -167,60 +159,76 @@
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script>
-        function initMap() {
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 8,
-                center: {lat: 48.856614, lng: 2.3522219000000177}
-            });
 
-            var geocoder = new google.maps.Geocoder();
-            geocodeAddress(geocoder, map);
-            setMarkers(map);
-        }
+    {% if hotel %}
+        {% set hotelAddress = hotel.address %}
+        {% set hotelId = hotel.id %}
 
-        function geocodeAddress(geocoder, resultsMap) {
+        <script>
+            function initMap() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 8,
+                    center: {lat: 48.856614, lng: 2.3522219000000177}
+                });
 
-            var address = "{{ hotelAddress }}";
+                var geocoder = new google.maps.Geocoder();
+                geocodeAddress(geocoder, map);
+                setMarkers(map);
+            }
 
-            geocoder.geocode({'address': address}, function(results, status) {
-                if (status === google.maps.GeocoderStatus.OK) {
-                    resultsMap.setCenter(results[0].geometry.location);
-                    resultsMap.setZoom(14);
-                    var marker = new google.maps.Marker({
-                        map: resultsMap,
-                        position: results[0].geometry.location,
-                        icon:"{{ asset('assets/image/icons/icon-hotel.png') }}"
-                    });
 
-                } else {
-                    alert('Geocode was not successful for the following reason: ' + status);
-                }
-            });
-        }
+            function geocodeAddress(geocoder, resultsMap) {
 
-        function setMarkers(map) {
-            var pathOrigin = window.location.origin ;
-            var pathIcons  = pathOrigin + '/assets/image/icons/';
+                var address = "{{ hotelAddress }}";
 
-            $.ajax({
-                url: pathOrigin + "/app_dev.php/api/hotels/{{ hotelId }}/places.json"
-            }).done(function(data) {
-                var places = data.places;
+                geocoder.geocode({'address': address}, function(results, status) {
+                    if (status === google.maps.GeocoderStatus.OK) {
+                        resultsMap.setCenter(results[0].geometry.location);
+                        resultsMap.setZoom(14);
+                        var marker = new google.maps.Marker({
+                            map: resultsMap,
+                            position: results[0].geometry.location,
+                            icon:"{{ asset('assets/image/icons/icon-hotel.png') }}"
+                        });
 
-                for (var i = 0; i < places.length; i++) {
-                    var place = places[i];
-                    var marker = new google.maps.Marker({
-                        position: {lat: place.latitude, lng: place.longitude},
-                        map: map,
-                        title: place.name,
-                        icon: pathIcons + place.type.icon
-                    });
-                }
-            });
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            }
 
-        }
-    </script>
+            function setMarkers(map) {
+                var pathOrigin = window.location.origin ;
+                var pathIcons  = pathOrigin + '/assets/image/icons/';
+
+                $.ajax({
+                    url: pathOrigin + "/app_dev.php/api/hotels/{{ hotelId }}/places.json"
+                }).done(function(data) {
+                    var places = data.places;
+
+                    for (var i = 0; i < places.length; i++) {
+                        var place = places[i];
+                        var marker = new google.maps.Marker({
+                            position: {lat: place.latitude, lng: place.longitude},
+                            map: map,
+                            title: place.name,
+                            icon: pathIcons + place.type.icon
+                        });
+                    }
+                });
+            }
+        </script>
+    {% else %}
+        <script>
+            function initMap() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 8,
+                    center: {lat: 48.856614, lng: 2.3522219000000177}
+                });
+            }
+        </script>
+    {% endif %}
+
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1Wnp3sml8NtilduFMNmjqogvD6wHguWw&callback=initMap">
     </script>
