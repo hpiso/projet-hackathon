@@ -60,24 +60,38 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
         $place4->setPlaceType($this->getReference('placetype-sport'));
         $this->addReference('place-lions',$place4);
 
-        $place5 = new Place();
-        $place5->setName('Le Red House');
-        $place5->setLatitude(48.85062619999999);
-        $place5->setLongitude(2.380143999999973);
-        $place5->setDescription('Bois sombre et pierres apparentes forment le décor de ce
+        $place99 = new Place();
+        $place99->setName('Le Red House');
+        $place99->setLatitude(48.85062619999999);
+        $place99->setLongitude(2.380143999999973);
+        $place99->setDescription('Bois sombre et pierres apparentes forment le décor de ce
          petit bar proposant cocktails et soirées à thème.');
-        $place5->setAddress('1 Rue de la Forge Royale, 75011');
-        $place5->setTel('01 43 67 06 43');
-        $place5->setUrlSite('https://www.facebook.com/pages/Red-House/157254821011789');
-        $place5->setHotel($this->getReference('hotel-bastille'));
-        $place5->setPlaceType($this->getReference('placetype-bar'));
-        $this->addReference('place-house',$place5);
+        $place99->setAddress('1 Rue de la Forge Royale, 75011');
+        $place99->setTel('01 43 67 06 43');
+        $place99->setUrlSite('https://www.facebook.com/pages/Red-House/157254821011789');
+        $place99->setHotel($this->getReference('hotel-bastille'));
+        $place99->setPlaceType($this->getReference('placetype-bar'));
+        $this->addReference('place-house',$place99);
+
+        $place98 = new Place();
+        $place98->setName('Musée des Arts et Métiers');
+        $place98->setLatitude(48.865842);
+        $place98->setLongitude(2.3554810000000543);
+        $place98->setDescription('Situé dans le 3ᵉ arrondissement de Paris, le musée des arts
+        et métiers est le musée du Conservatoire national des arts et métiers.');
+        $place98->setAddress('60 Rue Réaumur75003 Paris');
+        $place98->setTel('01 53 01 82 00');
+        $place98->setUrlSite('http://www.arts-et-metiers.net/');
+        $place98->setHotel($this->getReference('hotel-bastille'));
+        $place98->setPlaceType($this->getReference('placetype-culture'));
+        $this->addReference('place-musee',$place98);
 
         $objectManager->persist($place);
         $objectManager->persist($place2);
         $objectManager->persist($place3);
         $objectManager->persist($place4);
-        $objectManager->persist($place5);
+        $objectManager->persist($place99);
+        $objectManager->persist($place98);
 
         /********************************************************************/
 
