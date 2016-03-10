@@ -17,14 +17,21 @@ class DefaultController extends Controller
         $form = $this->createForm(new FilterType(), null);
         $form->handleRequest($request);
         $hotel = null;
+        $places = null;
 
         if ($form->isValid()) {
-            $hotel = $form->getData();
+            $hotel = $form->getData()['Recherche'];
+
+            $em = $this->getDoctrine()->getManager();
+            $places = $em->getRepository('HackathonCoreBundle:Place')->findBy([
+                'hotel' => $hotel
+            ]);
         }
 
         return $this->render('HackathonFrontBundle:Default:index.html.twig', [
-            'form' => $form->createView(),
-            'hotel' => $hotel
+            'form'   => $form->createView(),
+            'hotel'  => $hotel,
+            'places' => $places
         ]);
     }
 }

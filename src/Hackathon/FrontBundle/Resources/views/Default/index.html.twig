@@ -2,15 +2,13 @@
 
 {% block content %}
     <div align="center" class="zoneRecherche">
-        <form action="#" method="post" name="">
-            <div id="google_autocompleter"></div>
-            <div class="blocRecherche">
-                {{ form_start(form) }}
-                {{ form_widget(form.Recherche, {'attr': {'class': 'ac_input'}}) }}
-                <input class="btnForm" type="submit" id="rechercher" value="Recherche">
-                {{ form_end(form) }}
-            </div>
-        </form>
+        <div id="google_autocompleter"></div>
+        <div class="blocRecherche">
+            {{ form_start(form) }}
+            {{ form_widget(form.Recherche, {'attr': {'class': 'ac_input'}}) }}
+            <input class="btnForm" type="submit" id="rechercher" value="Recherche">
+            {{ form_end(form) }}
+        </div>
     </div>
     <div class="blocMenu">
         <ul id="menu">
@@ -51,15 +49,16 @@
         </ul>
     </div>
     <div id="center_div">
+        {% if(hotel!=null) %}
         <div id="left_div" style="overflow: scroll;">
             <img src="http://www.bestwestern.fr/public/images/homePage/V2/bgQ60-small.jpg" id="photo_hotel" style="width: 100%;">
             <div class="overlay overlay-bg-black overlay-full" style="position: absolute;left: 0;z-index: 3;width: 100%;background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));top: 0;">
                 <div class="v-center" style="text-align: center;margin-top: 20%;font-family: Verdana">
                     <h3 class="text-overlay text-headline" style="text-shadow: 0 2px 0 rgba(0, 0, 0, 0.8);color: #ffffff;font-family: Verdana;font-size: 1.84rem;font-weight: 400;line-height: 2.46rem;">
-                        Un hôtel trop bien
+                        Une activité trop bien
                     </h3>
                     <p class="text-overlay text-subhead" style="text-shadow: none;color: #eeeeee;font-size: 18px;margin-bottom: 20px;">
-                        Votre hôtel Best Western qui pèse dans le milieu du game.
+                        Votre activité qui pèse dans le milieu du game.
                     </p>
                     <p class="text-h5">
                         <span class="fa fa-fw fa-star text-yellow-800"></span>
@@ -246,6 +245,41 @@
             </div>
 
         </div>
+        {% endif %}
     </div>
+    <div style="height: 100%;" id="map"></div>
 {% endblock %}
 
+
+{% block javascript %}
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: {lat: -34.397, lng: 150.644}
+            });
+            var geocoder = new google.maps.Geocoder();
+
+            document.getElementById('submit').addEventListener('click', function() {
+                geocodeAddress(geocoder, map);
+            });
+        }
+
+        function geocodeAddress(geocoder, resultsMap) {
+            var address = document.getElementById('address').value;
+            geocoder.geocode({'address': address}, function(results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: resultsMap,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1Wnp3sml8NtilduFMNmjqogvD6wHguWw&callback=initMap">
+    </script>
+{% endblock %}
