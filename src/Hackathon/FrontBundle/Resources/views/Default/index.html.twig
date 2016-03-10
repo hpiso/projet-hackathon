@@ -1,11 +1,17 @@
 {% extends 'HackathonFrontBundle::layout.html.twig' %}
 
+{% if hotel %}
+    {% set hotelAddress = hotel.address %}
+{% else %}
+    {% set hotelAddress = 'Sydney' %}
+{% endif %}
+
 {% block content %}
     <div align="center" class="zoneRecherche">
         <div id="google_autocompleter"></div>
         <div class="blocRecherche">
             {{ form_start(form) }}
-            {{ form_widget(form.Recherche, {'attr': {'class': 'ac_input'}}) }}
+            {{ form_widget(form.Recherche, {'attr': {'class': 'ac_input'} }) }}
             <input class="btnForm" type="submit" id="rechercher" value="Recherche">
             {{ form_end(form) }}
         </div>
@@ -53,201 +59,95 @@
         <div id="left_div" style="overflow: scroll;">
             <img src="http://www.bestwestern.fr/public/images/homePage/V2/bgQ60-small.jpg" id="photo_hotel" style="width: 100%;">
             <div class="overlay overlay-bg-black overlay-full" style="position: absolute;left: 0;z-index: 3;width: 100%;background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));top: 0;">
-                <div class="v-center" style="text-align: center;margin-top: 20%;font-family: Verdana">
+                <div class="v-center" style="text-align: center;margin-top: 10%;font-family: Verdana">
                     <h3 class="text-overlay text-headline" style="text-shadow: 0 2px 0 rgba(0, 0, 0, 0.8);color: #ffffff;font-family: Verdana;font-size: 1.84rem;font-weight: 400;line-height: 2.46rem;">
-                        Une activité trop bien
+                        {{ hotel.name }}
                     </h3>
                     <p class="text-overlay text-subhead" style="text-shadow: none;color: #eeeeee;font-size: 18px;margin-bottom: 20px;">
-                        Votre activité qui pèse dans le milieu du game.
-                    </p>
-                    <p class="text-h5">
-                        <span class="fa fa-fw fa-star text-yellow-800"></span>
-                        <span class="fa fa-fw fa-star text-yellow-800"></span>
-                        <span class="fa fa-fw fa-star text-yellow-800"></span>
-                        <span class="fa fa-fw fa-star text-yellow-800"></span>
-                        <span class="fa fa-fw fa-star-o text-white"></span>
+                        {{ hotel.address }}
                     </p>
                 </div>
             </div>
-            <div style="padding: 15px; ">
-                <div style="width: 25%; display: inline-block;">
-                    <img src="http://www.arabnewtech.com/wp-content/uploads/avatar-1.png" style="width: 100%;">
-                    <p style="font-family: 'Verdana'; text-align: center">
-                        Alain Deloin
-                    </p>
-                    <p style="font-size: 8px;color:gray;">
-                        il y a 1 mois
-                    </p>
-                </div>
-                <div style="width: 70%;display: inline-block;vertical-align:top;padding-left: 10px;">
-                    <div>
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img class="alignnone  wp-image-148" style="border: 0px;" title="etoile moitié pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-moitié-pleine-peripeties-infirmiere.jpg" alt="etoile moitié pleine peripeties infirmiere" width="27">
-                        <p style="font-family: 'Verdana';font-size: 8px;display: inline-block;">51 avis</p>
-                    </div>
-                    <div style="padding-top: 15px;">
-                        <h5 style="font-family: 'Trebuchet MS'">Excellent ! <small style="font-size: 11px;font-family: 'Trebuchet MS';color: #8F8F8F;">Un rapport qualité prix nickel</small></h5>
-                    </div>
-                    <div style="padding-top: 15px;">
-                        <p style="font-family: 'Verdana';font-size: 10px;text-align: justify;">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
+
+            {#BLOCK DES AVIS#}
+
+
+
+            {#<div style="padding: 15px; ">#}
+                {#<div style="width: 25%; display: inline-block;">#}
+                    {#<img src="http://www.arabnewtech.com/wp-content/uploads/avatar-1.png" style="width: 100%;">#}
+                    {#<p style="font-family: 'Verdana'; text-align: center">#}
+                        {#Alain Deloin#}
+                    {#</p>#}
+                    {#<p style="font-size: 8px;color:gray;">#}
+                        {#il y a 1 mois#}
+                    {#</p>#}
+                {#</div>#}
+                {#<div style="width: 70%;display: inline-block;vertical-align:top;padding-left: 10px;">#}
+                {#<div>#}
+                {#<img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >#}
+                {#<img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >#}
+                {#<img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >#}
+                {#<img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >#}
+                {#<img class="alignnone  wp-image-148" style="border: 0px;" title="etoile moitié pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-moitié-pleine-peripeties-infirmiere.jpg" alt="etoile moitié pleine peripeties infirmiere" width="24">#}
+                {#<p style="font-family: 'Verdana';font-size: 8px;display: inline-block;">51 avis</p>#}
+                {#</div>#}
+                {#<div style="padding-top: 15px;">#}
+                {#<h5 style="font-family: 'Trebuchet MS'">Excellent ! <small style="font-size: 11px;font-family: 'Trebuchet MS';color: #8F8F8F;">Un rapport qualité prix nickel</small></h5>#}
+                {#</div>#}
+                {#<div style="padding-top: 15px;">#}
+                {#<p style="font-family: 'Verdana';font-size: 10px;text-align: justify;">#}
+                {#Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.#}
+                {#</p>#}
+                {#</div>#}
+                {#</div>#}
+            {#</div>#}
+            {% for place in places %}
+                <div style="padding: 15px;" class="div_place" data-id="place_btn_{{ place.id }}">
+                    <div style="width: 30%; display: inline-block;">
+                        <img src="http://www.chateaueza.com/media/hotel-chateau-eza-imageLinkchateau-eza-restaurant11.jpg" style="width: 100%;">
+                        <p style="text-align: center; padding-top:5px;">
+                            <a style="font-size: 8.5px;color:gray;" href="{{ place.urlSite }}">Voir le site</a>
                         </p>
                     </div>
-                </div>
-            </div>
-            <div style="padding: 15px; ">
-                <div style="width: 25%; display: inline-block;">
-                    <img src="http://www.arabnewtech.com/wp-content/uploads/avatar-1.png" style="width: 100%;">
-                    <p style="font-family: 'Verdana'; text-align: center">
-                        Alain Deloin
-                    </p>
-                    <p style="font-size: 8px;color:gray;">
-                        il y a 1 mois
-                    </p>
-                </div>
-                <div style="width: 70%;display: inline-block;vertical-align:top;padding-left: 10px;">
-                    <div>
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img class="alignnone  wp-image-148" style="border: 0px;" title="etoile moitié pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-moitié-pleine-peripeties-infirmiere.jpg" alt="etoile moitié pleine peripeties infirmiere" width="27">
-                        <p style="font-family: 'Verdana';font-size: 8px;display: inline-block;">51 avis</p>
+                    <div style="width: 65%;display: inline-block;vertical-align:top;padding-left: 10px;">
+                        <div>
+                            <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >
+                            <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >
+                            <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >
+                            <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >
+                            <img class="alignnone  wp-image-148" style="border: 0px;" title="etoile moitié pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-moitié-pleine-peripeties-infirmiere.jpg" alt="etoile moitié pleine peripeties infirmiere" width="24">
+                            <p style="font-family: 'Verdana';font-size: 8px;display: inline-block;">51 avis</p>
+                        </div>
+                        <div style="padding-top: 8px;">
+                            <p style=" font-size: 10px;">{{ place.address }}</p>
+                        </div>
+                        <div style="padding-top: 15px;">
+                            <h5 style="font-family: 'Trebuchet MS'">{{ place.name }} <small style="font-size: 11px;font-family: 'Trebuchet MS';color: #8F8F8F;">{{ place.placeType.name }}</small></h5>
+                            <p style="font-style: italic; font-size: 12px;">{{ place.tel }}</p>
+                        </div>
+                        <div style="padding-top: 15px;">
+                            <p style="font-family: 'Verdana';font-size: 11.5px;text-align: justify;">
+                                {{ place.description }}
+                            </p>
+                        </div>
                     </div>
-                    <div style="padding-top: 15px;">
-                        <h5 style="font-family: 'Trebuchet MS'">Excellent ! <small style="font-size: 11px;font-family: 'Trebuchet MS';color: #8F8F8F;">Un rapport qualité prix nickel</small></h5>
-                    </div>
-                    <div style="padding-top: 15px;">
-                        <p style="font-family: 'Verdana';font-size: 10px;text-align: justify;">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        </p>
+                    <div class="div_place_btn" id="place_btn_{{ place.id }}" style="text-align: center; padding-top: 15px">
+                        <button class="btnForm" id="rechercher">
+                            Votre avis
+                        </button>
                     </div>
                 </div>
-            </div>
-            <div style="padding: 15px; ">
-                <div style="width: 25%; display: inline-block;">
-                    <img src="http://www.arabnewtech.com/wp-content/uploads/avatar-1.png" style="width: 100%;">
-                    <p style="font-family: 'Verdana'; text-align: center">
-                        Alain Deloin
-                    </p>
-                    <p style="font-size: 8px;color:gray;">
-                        il y a 1 mois
-                    </p>
-                </div>
-                <div style="width: 70%;display: inline-block;vertical-align:top;padding-left: 10px;">
-                    <div>
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img class="alignnone  wp-image-148" style="border: 0px;" title="etoile moitié pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-moitié-pleine-peripeties-infirmiere.jpg" alt="etoile moitié pleine peripeties infirmiere" width="27">
-                        <p style="font-family: 'Verdana';font-size: 8px;display: inline-block;">51 avis</p>
-                    </div>
-                    <div style="padding-top: 15px;">
-                        <h5 style="font-family: 'Trebuchet MS'">Excellent ! <small style="font-size: 11px;font-family: 'Trebuchet MS';color: #8F8F8F;">Un rapport qualité prix nickel</small></h5>
-                    </div>
-                    <div style="padding-top: 15px;">
-                        <p style="font-family: 'Verdana';font-size: 10px;text-align: justify;">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div style="padding: 15px; ">
-                <div style="width: 25%; display: inline-block;">
-                    <img src="http://www.arabnewtech.com/wp-content/uploads/avatar-1.png" style="width: 100%;">
-                    <p style="font-family: 'Verdana'; text-align: center">
-                        Alain Deloin
-                    </p>
-                    <p style="font-size: 8px;color:gray;">
-                        il y a 1 mois
-                    </p>
-                </div>
-                <div style="width: 70%;display: inline-block;vertical-align:top;padding-left: 10px;">
-                    <div>
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img class="alignnone  wp-image-148" style="border: 0px;" title="etoile moitié pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-moitié-pleine-peripeties-infirmiere.jpg" alt="etoile moitié pleine peripeties infirmiere" width="27">
-                        <p style="font-family: 'Verdana';font-size: 8px;display: inline-block;">51 avis</p>
-                    </div>
-                    <div style="padding-top: 15px;">
-                        <h5 style="font-family: 'Trebuchet MS'">Excellent ! <small style="font-size: 11px;font-family: 'Trebuchet MS';color: #8F8F8F;">Un rapport qualité prix nickel</small></h5>
-                    </div>
-                    <div style="padding-top: 15px;">
-                        <p style="font-family: 'Verdana';font-size: 10px;text-align: justify;">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div style="padding: 15px; ">
-                <div style="width: 25%; display: inline-block;">
-                    <img src="http://www.arabnewtech.com/wp-content/uploads/avatar-1.png" style="width: 100%;">
-                    <p style="font-family: 'Verdana'; text-align: center">
-                        Alain Deloin
-                    </p>
-                    <p style="font-size: 8px;color:gray;">
-                        il y a 1 mois
-                    </p>
-                </div>
-                <div style="width: 70%;display: inline-block;vertical-align:top;padding-left: 10px;">
-                    <div>
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img class="alignnone  wp-image-148" style="border: 0px;" title="etoile moitié pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-moitié-pleine-peripeties-infirmiere.jpg" alt="etoile moitié pleine peripeties infirmiere" width="27">
-                        <p style="font-family: 'Verdana';font-size: 8px;display: inline-block;">51 avis</p>
-                    </div>
-                    <div style="padding-top: 15px;">
-                        <h5 style="font-family: 'Trebuchet MS'">Excellent ! <small style="font-size: 11px;font-family: 'Trebuchet MS';color: #8F8F8F;">Un rapport qualité prix nickel</small></h5>
-                    </div>
-                    <div style="padding-top: 15px;">
-                        <p style="font-family: 'Verdana';font-size: 10px;text-align: justify;">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div style="padding: 15px; ">
-                <div style="width: 25%; display: inline-block;">
-                    <img src="http://www.arabnewtech.com/wp-content/uploads/avatar-1.png" style="width: 100%;">
-                    <p style="font-family: 'Verdana'; text-align: center">
-                        Alain Deloin
-                    </p>
-                    <p style="font-size: 8px;color:gray;">
-                        il y a 1 mois
-                    </p>
-                </div>
-                <div style="width: 70%;display: inline-block;vertical-align:top;padding-left: 10px;">
-                    <div>
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="27" >
-                        <img class="alignnone  wp-image-148" style="border: 0px;" title="etoile moitié pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-moitié-pleine-peripeties-infirmiere.jpg" alt="etoile moitié pleine peripeties infirmiere" width="27">
-                        <p style="font-family: 'Verdana';font-size: 8px;display: inline-block;">51 avis</p>
-                    </div>
-                    <div style="padding-top: 15px;">
-                        <h5 style="font-family: 'Trebuchet MS'">Excellent ! <small style="font-size: 11px;font-family: 'Trebuchet MS';color: #8F8F8F;">Un rapport qualité prix nickel</small></h5>
-                    </div>
-                    <div style="padding-top: 15px;">
-                        <p style="font-family: 'Verdana';font-size: 10px;text-align: justify;">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                        </p>
-                    </div>
-                </div>
-            </div>
+                <hr>
+            {% endfor %}
+
 
         </div>
         {% endif %}
     </div>
     <div style="height: 100%;" id="map"></div>
+
 {% endblock %}
 
 
@@ -256,30 +156,70 @@
         function initMap() {
             var map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 8,
-                center: {lat: -34.397, lng: 150.644}
+                center: {lat: 48.856614, lng: 2.3522219000000177}
             });
-            var geocoder = new google.maps.Geocoder();
 
-            document.getElementById('submit').addEventListener('click', function() {
-                geocodeAddress(geocoder, map);
-            });
+            var geocoder = new google.maps.Geocoder();
+            geocodeAddress(geocoder, map);
+            setMarkers(map);
+
         }
 
         function geocodeAddress(geocoder, resultsMap) {
-            var address = document.getElementById('address').value;
+
+            var address = "{{ hotelAddress }}";
+
             geocoder.geocode({'address': address}, function(results, status) {
                 if (status === google.maps.GeocoderStatus.OK) {
                     resultsMap.setCenter(results[0].geometry.location);
+                    resultsMap.setZoom(14);
                     var marker = new google.maps.Marker({
                         map: resultsMap,
                         position: results[0].geometry.location
                     });
+
                 } else {
                     alert('Geocode was not successful for the following reason: ' + status);
                 }
             });
         }
+
+        function setMarkers(map) {
+
+            var places = [
+                ['Le Café des Chats', 48.856614, 2.3522219000000177],
+                ['Chez Janou', 48.85656609999999, 2.3673096999999643]
+            ];
+
+            var image = {
+                url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                // This marker is 20 pixels wide by 32 pixels high.
+                size: new google.maps.Size(20, 32),
+                // The origin for this image is (0, 0).
+                origin: new google.maps.Point(0, 0),
+                // The anchor for this image is the base of the flagpole at (0, 32).
+                anchor: new google.maps.Point(0, 32)
+            };
+            // Shapes define the clickable region of the icon. The type defines an HTML
+            // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+            // The final coordinate closes the poly by connecting to the first coordinate.
+            var shape = {
+                coords: [1, 1, 1, 20, 18, 20, 18, 1],
+                type: 'poly'
+            };
+            for (var i = 0; i < places.length; i++) {
+                var place = places[i];
+                var marker = new google.maps.Marker({
+                    position: {lat: place[1], lng: place[2]},
+                    map: map,
+                    icon: image,
+                    shape: shape,
+                    title: place[0]
+                });
+            }
+        }
     </script>
+
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1Wnp3sml8NtilduFMNmjqogvD6wHguWw&callback=initMap">
     </script>
 {% endblock %}

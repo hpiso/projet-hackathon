@@ -14,6 +14,8 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
     {
         $place = new Place();
         $place->setName('Le Café des Chats');
+        $place->setLatitude(48.856614);
+        $place->setLongitude(2.3522219000000177);
         $place->setDescription('Un café ou des chats se promènent en liberté');
         $place->setAddress('9 Rue Sedaine, 75011 Paris');
         $place->setTel('09 73 53 35 81');
@@ -24,6 +26,8 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
 
         $place2 = new Place();
         $place2->setName('Chez Janou');
+        $place->setLatitude(48.85656609999999);
+        $place->setLongitude(2.3673096999999643);
         $place2->setDescription('Autour d\'un comptoir central, ce bistrop provençal avec terrasse propose une carte sobre et plus de 80 pastis');
         $place2->setAddress('2 Rue Roger Verlomme, 75003 Paris');
         $place2->setTel('01 42 72 28 41');

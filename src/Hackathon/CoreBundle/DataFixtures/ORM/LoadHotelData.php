@@ -29,7 +29,7 @@ class LoadHotelData extends AbstractFixture implements FixtureInterface, Ordered
         $objectManager->flush();
 
         $this->addReference('hotel-aurore',$hotel);
-        $this->addReference('hotel-bastille',$hotel);
+        $this->addReference('hotel-bastille',$hotel2);
     }
 
     public function getOrder()
