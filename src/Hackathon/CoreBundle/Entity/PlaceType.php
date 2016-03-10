@@ -31,6 +31,13 @@ class PlaceType
     /**
      * @var string
      *
+     * @ORM\Column(name="icon", type="string", length=100)
+     */
+    private $icon;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="description", type="text")
      */
     private $description;
@@ -90,5 +97,28 @@ class PlaceType
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set icon
+     *
+     * @param string $icon
+     * @return PlaceType
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Get icon
+     *
+     * @return string 
+     */
+    public function getIcon()
+    {
+        return $this->icon;
     }
 }

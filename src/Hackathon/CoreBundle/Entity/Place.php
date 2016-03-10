@@ -46,6 +46,20 @@ class Place
     /**
      * @var string
      *
+     * @ORM\Column(name="latitude", type="string", length=100, nullable=true)
+     */
+    private $latitude;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="longitude", type="string", length=100, nullable=true)
+     */
+    private $longitude;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="urlSite", type="string", length=255, nullable=true)
      */
     private $urlSite;
@@ -280,5 +294,51 @@ class Place
     public function getAvis()
     {
         return $this->avis;
+    }
+
+    /**
+     * Set latitude
+     *
+     * @param string $latitude
+     * @return Place
+     */
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+
+        return $this;
+    }
+
+    /**
+     * Get latitude
+     *
+     * @return string 
+     */
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+
+    /**
+     * Set longitude
+     *
+     * @param string $longitude
+     * @return Place
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * Get longitude
+     *
+     * @return string 
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
     }
 }
