@@ -5,10 +5,11 @@ namespace Hackathon\CoreBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Hackathon\CoreBundle\Entity\PlaceType;
+use JMS\Serializer\Annotation\ExclusionPolicy;
 
 /**
  * Place
- *
+ * @ExclusionPolicy("none")
  * @ORM\Table(name="place")
  * @ORM\Entity(repositoryClass="Hackathon\CoreBundle\Repository\PlaceRepository")
  */

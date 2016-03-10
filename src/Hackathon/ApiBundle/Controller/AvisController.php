@@ -14,7 +14,7 @@ class AvisController extends FOSRestController
      * @param Avis $avis
      * @return Avis
      */
-    public function getAvisAction(Avis $avis)
+    public function getAviAction(Avis $avis)
     {
         return $avis;
     }
@@ -22,7 +22,7 @@ class AvisController extends FOSRestController
     /**
      * @return array
      */
-    public function getAvissAction()
+    public function getAvisAction()
     {
         return $this->getDoctrine()->getManager()
             ->getRepository('HackathonCoreBundle:Avis')

@@ -3,9 +3,12 @@
 namespace Hackathon\CoreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Exclude;
 
 /**
  * Avis
+ * @ExclusionPolicy("none")
  * @ORM\Table(name="avis")
  * @ORM\Entity(repositoryClass="Hackathon\CoreBundle\Repository\AvisRepository")
  */
@@ -44,6 +47,7 @@ class Avis
     /**
      * @ORM\ManyToOne(targetEntity="Place", inversedBy="avis")
      * @ORM\JoinColumn(name="place_id", referencedColumnName="id")
+     * @Exclude
      */
     private $place;
 

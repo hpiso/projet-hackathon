@@ -30,6 +30,7 @@ class HotelsController extends FOSRestController
 
     public function getHotelPlacesAction(Hotel $hotel)
     {
+//        return $hotel->getPlaces();
         $em = $this->getDoctrine()->getManager();
         $places = $em->getRepository('HackathonCoreBundle:Place')->findBy([
             'hotel' => $hotel

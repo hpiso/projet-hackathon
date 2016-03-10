@@ -42,6 +42,14 @@ class Hotel
      */
     private $slug;
 
+//    /**
+//     * @ORM\OneToMany(targetEntity="Place", mappedBy="hotel")
+//     */
+//    private $places;
+//
+//    public function __construct() {
+//        $this->places = new ArrayCollection();
+//    }
 
     /**
      * Get id
