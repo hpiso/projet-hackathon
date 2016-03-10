@@ -14,7 +14,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $form = $this->createForm(new FilterType(), null);
+        $form = $this->createForm(new FilterType(), null, array('action' => '#center_div'));
         $form->handleRequest($request);
         $hotel = null;
         $places = null;
