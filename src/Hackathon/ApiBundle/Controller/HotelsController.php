@@ -3,8 +3,7 @@
 namespace Hackathon\ApiBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use FOS\RestBundle\View\View;
 use Hackathon\CoreBundle\Entity\Hotel;
 
 class HotelsController extends FOSRestController
@@ -31,8 +30,34 @@ class HotelsController extends FOSRestController
 
     public function getHotelPlacesAction(Hotel $hotel)
     {
-        return $this->getDoctrine()->getManager()
-            ->getRepository('HackathonCoreBundle:Place')
-            ->findAll();
+        $em = $this->getDoctrine()->getManager();
+        $places = $em->getRepository('HackathonCoreBundle:Place')->findBy([
+            'hotel' => $hotel
+        ]);
+
+        foreach ($places as $key => $place)
+        {
+            $data[] = [
+                'id' => $place->getId(),
+                'name' => $place->getName(),
+                'type' =>
+                    [
+                        'id' => $place->getPlaceType()->getId(),
+                        'name' => $place->getPlaceType()->getName()
+                    ],
+//                'longitude' => $place->getLongitude(),
+//                'latitude' => $place->getLatitude(),
+            ];
+        }
+
+        $view = View::create([], 200);
+        $view->setData([
+            'count' => count($places),
+            'places' => $data,
+        ]);
+
+        $handler = $this->get('fos_rest.view_handler');
+
+        return $handler->handle($view);
     }
 }

@@ -6,7 +6,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Avis
- *
  * @ORM\Table(name="avis")
  * @ORM\Entity(repositoryClass="Hackathon\CoreBundle\Repository\AvisRepository")
  */

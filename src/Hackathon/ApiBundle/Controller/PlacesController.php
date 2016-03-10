@@ -3,8 +3,7 @@
 namespace Hackathon\ApiBundle\Controller;
 
 use FOS\RestBundle\Controller\FOSRestController;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use FOS\RestBundle\View\View;
 use Hackathon\CoreBundle\Entity\Place;
 
 class PlacesController extends FOSRestController
@@ -16,7 +15,25 @@ class PlacesController extends FOSRestController
      */
     public function getPlaceAction(Place $place)
     {
-        return $place;
+//        foreach($place->getAvis() as $avis)
+//        {
+//            $data[] = [
+//
+//
+//                $place = [
+//            'name' => $place->getName(),
+//            'avis' => $data
+//
+//                    ]
+//                }
+//        ];
+//
+//        $view = View::create([], 200);
+//        $view->setData($place);
+//
+//        $handler = $this->get('fos_rest.view_handler');
+//
+//        return $handler->handle($view);
     }
 
     /**
@@ -24,8 +41,41 @@ class PlacesController extends FOSRestController
      */
     public function getPlacesAction()
     {
-        return $this->getDoctrine()->getManager()
+        $places = $this->getDoctrine()->getManager()
             ->getRepository('HackathonCoreBundle:Place')
             ->findAll();
+
+        foreach ($places as $key => $place)
+        {
+            $data[] = [
+                'id' => $place->getId(),
+                'name' => $place->getName(),
+                'hotel' =>
+                    [
+                        'id' => $place->getHotel()->getId(),
+                        'slug' => $place->getHotel()->getSlug()
+                    ],
+                'type' =>
+                    [
+                        'id' => $place->getPlaceType()->getId(),
+                        'name' => $place->getPlaceType()->getName(),
+//                        'icon' => $place->getPlaceType()->getIcon(),
+                    ],
+                'avis' => count($place->getAvis())
+//                'longitude' => $place->getLongitude(),
+//                'latitude' => $place->getLatitude(),
+            ];
+        }
+
+        $view = View::create([], 200);
+        $view->setData([
+            'count' => count($places),
+            'places' => $data,
+        ]);
+
+        $handler = $this->get('fos_rest.view_handler');
+
+        return $handler->handle($view);
+
     }
 }

@@ -4,6 +4,7 @@ namespace Hackathon\CoreBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Hackathon\CoreBundle\Entity\PlaceType;
 
 /**
  * Place
@@ -70,7 +71,7 @@ class Place
     private $placeType;
 
     /**
-     * @ORM\OneToMany(targetEntity="Place", mappedBy="place")
+     * @ORM\OneToMany(targetEntity="Avis", mappedBy="place")
      */
     private $avis;
 
@@ -209,7 +210,7 @@ class Place
      * @param \Hackathon\CoreBundle\Entity\Hotel $hotel
      * @return Place
      */
-    public function setHotel(\Hackathon\CoreBundle\Entity\Hotel $hotel = null)
+    public function setHotel(Hotel $hotel = null)
     {
         $this->hotel = $hotel;
 
@@ -232,7 +233,7 @@ class Place
      * @param \Hackathon\CoreBundle\Entity\PlaceType $placeType
      * @return Place
      */
-    public function setPlaceType(\Hackathon\CoreBundle\Entity\PlaceType $placeType = null)
+    public function setPlaceType(PlaceType $placeType = null)
     {
         $this->placeType = $placeType;
 
@@ -250,26 +251,26 @@ class Place
     }
 
     /**
-     * Add avis
-     *
-     * @param \Hackathon\CoreBundle\Entity\Place $avis
-     * @return Place
-     */
-    public function addAvi(\Hackathon\CoreBundle\Entity\Place $avis)
-    {
-        $this->avis[] = $avis;
-
-        return $this;
-    }
-
-    /**
      * Remove avis
      *
      * @param \Hackathon\CoreBundle\Entity\Place $avis
      */
-    public function removeAvi(\Hackathon\CoreBundle\Entity\Place $avis)
+    public function removeAvi(Place $avis)
     {
         $this->avis->removeElement($avis);
+    }
+
+    /**
+     * Add avis
+     *
+     * @param \Hackathon\CoreBundle\Entity\Avis $avis
+     * @return Place
+     */
+    public function addAvi(Avis $avis)
+    {
+        $this->avis[] = $avis;
+
+        return $this;
     }
 
     /**
