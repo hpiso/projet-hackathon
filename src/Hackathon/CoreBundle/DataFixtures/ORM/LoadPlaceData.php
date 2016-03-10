@@ -69,6 +69,8 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
 
         $place5 = new Place();
         $place5->setName('L\'Express de Lyon');
+        $place5->setLatitude(48.8458659);
+        $place5->setLongitude(2.373219199999994);
         $place5->setDescription('Café-bar au cadre sobre et convivial, réputé pour sa sélection de bières pression et ses plats typiques.');
         $place5->setAddress('1 Rue de Lyon, 75012 Paris');
         $place5->setTel('01 43 43 21 32');
@@ -79,6 +81,8 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
 
         $place6 = new Place();
         $place6->setName('L\'Européen');
+        $place6->setLatitude(48.8458659);
+        $place6->setLongitude(2.373219199999994);
         $place6->setDescription('Brasserie au décor rétro et design, avec lustres en verrine et miroirs, spécialisée dans les fruits de mer.');
         $place6->setAddress('21 bis Boulevard Diderot, 75012 Paris');
         $place6->setTel('01 43 43 99 70');
@@ -89,6 +93,8 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
 
         $place7 = new Place();
         $place7->setName('La Maison Rouge');
+        $place7->setLatitude(48.8472898);
+        $place7->setLongitude(2.36755160000007);
         $place7->setDescription('Établissement qui pèse de ouf - Jolan, 2014');
         $place7->setAddress('10 Boulevard de la Bastille, 75012 Paris');
         $place7->setTel('01 40 01 08 80');
@@ -99,6 +105,8 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
 
         $place8 = new Place();
         $place8->setName('Piscine Joséphine Baker');
+        $place8->setLatitude(48.8338944);
+        $place8->setLongitude(2.3775918000000047);
         $place8->setDescription('Une piscine parisienne sur une péniche, au milieu de la seine');
         $place8->setAddress('Port de la Gare, Quai François Mauriac, 75013 Paris');
         $place8->setTel('01 56 61 96 503');
@@ -116,6 +124,8 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
 
         $place9 = new Place();
         $place9->setName('Le Joinville');
+        $place9->setLatitude(49.3616948);
+        $place9->setLongitude(0.08606239999994614);
         $place9->setDescription('Bar traditionnel Normand');
         $place9->setAddress('4 Boulevard Fernand Moureaux, 14360 Trouville-sur-Mer');
         $place9->setTel('02 31 88 02 54');
@@ -126,6 +136,8 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
 
         $place10 = new Place();
         $place10->setName('La Taverne du Port');
+        $place10->setLatitude(49.3622453);
+        $place10->setLongitude(0.08612510000000384);
         $place10->setDescription('Restaurant traditionnel Normand');
         $place10->setAddress('18 Boulevard Fernand Moureaux, 14360 Trouville-sur-Mer');
         $place10->setTel('02 31 88 38 67');
@@ -136,6 +148,8 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
 
         $place11 = new Place();
         $place11->setName('Église Notre-Dame');
+        $place11->setLatitude(49.3650225);
+        $place11->setLongitude(0.08446270000001732);
         $place11->setDescription('Établissement de culte qui pèse de ouf - Jolan, 2014');
         $place11->setAddress('9 Place Notre Dame, 14360 Trouville-sur-Mer');
         $place11->setTel('');
@@ -145,6 +159,8 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
         $this->addReference('place-eglise',$place11);
 
         $place12 = new Place();
+        $place12->setLatitude(49.353976);
+        $place12->setLongitude(2.3522219000000177);
         $place12->setName('Tennis Sporting-Club de Deauville');
         $place12->setDescription('Un club de tennis très réputé');
         $place12->setAddress('Boulevard de la Mer, 14800 Deauville');
