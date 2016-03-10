@@ -40,6 +40,7 @@ class LoadPlaceTypeData extends AbstractFixture implements FixtureInterface, Ord
             $type = new PlaceType();
             $type->setName($value['nom']);
             $type->setDescription($value['description']);
+            $type->setIcon($value['icon']);
 
             $objectManager->persist($type);
 

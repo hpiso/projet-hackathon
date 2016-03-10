@@ -38,8 +38,7 @@ class PlacesController extends FOSRestController
     /**
      * @return array
      */
-    public
-    function getPlacesAction()
+    public function getPlacesAction()
     {
         $places = $this->getDoctrine()->getManager()
             ->getRepository('HackathonCoreBundle:Place')
