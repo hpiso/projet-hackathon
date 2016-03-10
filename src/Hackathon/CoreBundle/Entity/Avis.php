@@ -43,7 +43,7 @@ class Avis
     private $note;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Place")
+     * @ORM\ManyToOne(targetEntity="Place", inversedBy="avis")
      * @ORM\JoinColumn(name="place_id", referencedColumnName="id")
      */
     private $place;

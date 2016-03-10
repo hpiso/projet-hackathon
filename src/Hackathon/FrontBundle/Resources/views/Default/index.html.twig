@@ -1,16 +1,20 @@
 {% extends 'HackathonFrontBundle::layout.html.twig' %}
 
+{% if hotel %}
+    {% set hotelAddress = hotel.address %}
+{% else %}
+    {% set hotelAddress = 'Sydney' %}
+{% endif %}
+
 {% block content %}
     <div align="center" class="zoneRecherche">
-        <form action="#" method="post" name="">
-            <div id="google_autocompleter"></div>
-            <div class="blocRecherche">
-                {{ form_start(form) }}
-                {{ form_widget(form.Recherche, {'attr': {'class': 'ac_input'}}) }}
-                <input class="btnForm" type="submit" id="rechercher" value="Recherche">
-                {{ form_end(form) }}
-            </div>
-        </form>
+        <div id="google_autocompleter"></div>
+        <div class="blocRecherche">
+            {{ form_start(form) }}
+            {{ form_widget(form.Recherche, {'attr': {'class': 'ac_input'} }) }}
+            <input class="btnForm" type="submit" id="rechercher" value="Recherche">
+            {{ form_end(form) }}
+        </div>
     </div>
     <div class="blocMenu">
         <ul id="menu">
@@ -142,5 +146,81 @@
         </div>
         {% endif %}
     </div>
+    <div style="height: 100%;" id="map"></div>
+
 {% endblock %}
 
+
+{% block javascript %}
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 8,
+                center: {lat: 48.856614, lng: 2.3522219000000177}
+            });
+
+            var geocoder = new google.maps.Geocoder();
+            geocodeAddress(geocoder, map);
+            setMarkers(map);
+
+        }
+
+        function geocodeAddress(geocoder, resultsMap) {
+
+            var address = "{{ hotelAddress }}";
+
+            geocoder.geocode({'address': address}, function(results, status) {
+                if (status === google.maps.GeocoderStatus.OK) {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    resultsMap.setZoom(14);
+                    var marker = new google.maps.Marker({
+                        map: resultsMap,
+                        position: results[0].geometry.location
+                    });
+
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+
+        function setMarkers(map) {
+
+            var places = [
+                ['Le Café des Chats', 48.856614, 2.3522219000000177],
+                ['Chez Janou', 48.85656609999999, 2.3673096999999643],
+                ['Le Café des Chats', 48.85656609999999, 2.3673096999999643]
+            ];
+
+            var image = {
+                url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                // This marker is 20 pixels wide by 32 pixels high.
+                size: new google.maps.Size(20, 32),
+                // The origin for this image is (0, 0).
+                origin: new google.maps.Point(0, 0),
+                // The anchor for this image is the base of the flagpole at (0, 32).
+                anchor: new google.maps.Point(0, 32)
+            };
+            // Shapes define the clickable region of the icon. The type defines an HTML
+            // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+            // The final coordinate closes the poly by connecting to the first coordinate.
+            var shape = {
+                coords: [1, 1, 1, 20, 18, 20, 18, 1],
+                type: 'poly'
+            };
+            for (var i = 0; i < places.length; i++) {
+                var place = places[i];
+                var marker = new google.maps.Marker({
+                    position: {lat: place[1], lng: place[2]},
+                    map: map,
+                    icon: image,
+                    shape: shape,
+                    title: place[0]
+                });
+            }
+        }
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1Wnp3sml8NtilduFMNmjqogvD6wHguWw&callback=initMap">
+    </script>
+{% endblock %}

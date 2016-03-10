@@ -2,6 +2,7 @@
 
 namespace Hackathon\CoreBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -67,6 +68,15 @@ class Place
      * @ORM\JoinColumn(name="place_type_id", referencedColumnName="id")
      */
     private $placeType;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Place", mappedBy="place")
+     */
+    private $avis;
+
+    public function __construct() {
+        $this->avis = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -237,5 +247,38 @@ class Place
     public function getPlaceType()
     {
         return $this->placeType;
+    }
+
+    /**
+     * Add avis
+     *
+     * @param \Hackathon\CoreBundle\Entity\Place $avis
+     * @return Place
+     */
+    public function addAvi(\Hackathon\CoreBundle\Entity\Place $avis)
+    {
+        $this->avis[] = $avis;
+
+        return $this;
+    }
+
+    /**
+     * Remove avis
+     *
+     * @param \Hackathon\CoreBundle\Entity\Place $avis
+     */
+    public function removeAvi(\Hackathon\CoreBundle\Entity\Place $avis)
+    {
+        $this->avis->removeElement($avis);
+    }
+
+    /**
+     * Get avis
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAvis()
+    {
+        return $this->avis;
     }
 }
