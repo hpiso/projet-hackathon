@@ -71,9 +71,7 @@ class DefaultController extends Controller
                 );
                 die($e);
             }
-            dump($hotel);die;
         }
-
 
         return $this->render('HackathonFrontBundle:Default:index.html.twig', [
             'form'   => $formSearch->createView(),
