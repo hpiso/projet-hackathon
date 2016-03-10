@@ -3,11 +3,10 @@
 namespace CoreBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
-use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Hackathon\CoreBundle\Entity\Avis;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 class LoadAvisData extends AbstractFixture implements FixtureInterface, OrderedFixtureInterface
 {
@@ -15,34 +14,28 @@ class LoadAvisData extends AbstractFixture implements FixtureInterface, OrderedF
     {
         $now = new \DateTime("now");
 
-        $avis = new Avis();
-        $avis->setDate($now);
-        $avis->setNote(random_int(1,5));
-        $avis->setDescription('Une piscine assez agréable');
-        $avis->setPlace($this->getReference('place-lions'));
+        $datas = [
+            ['Une piscine assez agréable', 'place-lions'],
+            ['Une piscine assez agréable', 'place-baker'],
+            ['Un bon restaurant', 'place-europeen'],
+            ['Un bon bar', 'place-chat'],
+            ['Tres belle église, je viens prier ici souvent', 'place-eglise'],
+            ['J\'aime beaucoup les vitraux de cette église', 'place-eglise'],
+            ['BOF', 'place-eglise'],
+            ['beau terrain', 'place-tennis'],
+            ['les courts sont nuls, je n\'irai plus jamais', 'place-tennis'],
+        ];
 
-        $avis2 = new Avis();
-        $avis2->setDate($now);
-        $avis2->setNote(random_int(1,5));
-        $avis2->setDescription('Une piscine assez agréable');
-        $avis2->setPlace($this->getReference('place-baker'));
+        foreach($datas as $data)
+        {
+            $avis = new Avis();
+            $avis->setDate($now);
+            $avis->setNote(random_int(1, 5));
+            $avis->setDescription($data[0]);
+            $avis->setPlace($this->getReference($data[1]));
 
-        $avis3 = new Avis();
-        $avis3->setDate($now);
-        $avis3->setNote(random_int(1,5));
-        $avis3->setDescription('Un bon restaurent');
-        $avis3->setPlace($this->getReference('place-europeen'));
-
-        $avis4 = new Avis();
-        $avis4->setDate($now);
-        $avis4->setNote(random_int(1,5));
-        $avis4->setDescription('Un bon bar');
-        $avis4->setPlace($this->getReference('place-chat'));
-
-        $objectManager->persist($avis);
-        $objectManager->persist($avis2);
-        $objectManager->persist($avis3);
-        $objectManager->persist($avis4);
+            $objectManager->persist($avis);
+        }
         $objectManager->flush();
     }
 

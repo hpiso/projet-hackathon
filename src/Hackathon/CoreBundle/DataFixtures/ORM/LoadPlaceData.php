@@ -112,6 +112,53 @@ class LoadPlaceData extends AbstractFixture implements FixtureInterface, Ordered
         $objectManager->persist($place7);
         $objectManager->persist($place8);
 
+        /********************************************************************/
+
+        $place9 = new Place();
+        $place9->setName('Le Joinville');
+        $place9->setDescription('Bar traditionnel Normand');
+        $place9->setAddress('4 Boulevard Fernand Moureaux, 14360 Trouville-sur-Mer');
+        $place9->setTel('02 31 88 02 54');
+        $place9->setUrlSite('');
+        $place9->setHotel($this->getReference('hotel-vallon'));
+        $place9->setPlaceType($this->getReference('placetype-bar'));
+        $this->addReference('place-joinville',$place9);
+
+        $place10 = new Place();
+        $place10->setName('La Taverne du Port');
+        $place10->setDescription('Restaurant traditionnel Normand');
+        $place10->setAddress('18 Boulevard Fernand Moureaux, 14360 Trouville-sur-Mer');
+        $place10->setTel('02 31 88 38 67');
+        $place10->setUrlSite('');
+        $place10->setHotel($this->getReference('hotel-vallon'));
+        $place10->setPlaceType($this->getReference('placetype-gastronomie'));
+        $this->addReference('place-taverne',$place10);
+
+        $place11 = new Place();
+        $place11->setName('Église Notre-Dame');
+        $place11->setDescription('Établissement de culte qui pèse de ouf - Jolan, 2014');
+        $place11->setAddress('9 Place Notre Dame, 14360 Trouville-sur-Mer');
+        $place11->setTel('');
+        $place11->setUrlSite('');
+        $place11->setHotel($this->getReference('hotel-vallon'));
+        $place11->setPlaceType($this->getReference('placetype-culture'));
+        $this->addReference('place-eglise',$place11);
+
+        $place12 = new Place();
+        $place12->setName('Tennis Sporting-Club de Deauville');
+        $place12->setDescription('Un club de tennis très réputé');
+        $place12->setAddress('Boulevard de la Mer, 14800 Deauville');
+        $place12->setTel('02 31 14 02 18');
+        $place12->setUrlSite('http://sc-deauville.clubeo.com/');
+        $place12->setHotel($this->getReference('hotel-vallon'));
+        $place12->setPlaceType($this->getReference('placetype-sport'));
+        $this->addReference('place-tennis',$place12);
+
+        $objectManager->persist($place9);
+        $objectManager->persist($place10);
+        $objectManager->persist($place11);
+        $objectManager->persist($place12);
+
         $objectManager->flush();
     }
 
