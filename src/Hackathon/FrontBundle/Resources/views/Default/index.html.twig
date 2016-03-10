@@ -81,11 +81,15 @@
                     </div>
                     <div style="width: 65%;display: inline-block;vertical-align:top;padding-left: 10px;">
                         <div>
-                            <h5 style="font-family: 'Trebuchet MS'">{{ place.name }} <small style="font-size: 11px;font-family: 'Trebuchet MS';color: #8F8F8F;">{{ place.placeType.name }}</small></h5>
-                            <p style="font-style: italic; font-size: 12px;">{{ place.tel }}</p>
+                            <h5 style="font-family: 'Trebuchet MS'">
+                                <img style="height: 7%;" src="{{ asset('assets/image/icons/' ~ place.placeType.icon) }}"/>
+                                {{ place.name }}
+                                <em style="font-size: 11px;font-family: 'Trebuchet MS';color: #8F8F8F;">{{ place.placeType.name }}</em>
+                            </h5>
                         </div>
                         <div style="padding-top: 8px;">
                             <p style=" font-size: 10px;">{{ place.address }}</p>
+                            <p style="font-style: italic; font-size: 12px;">{{ place.tel }}</p>
                         </div>
 
                         <div style="padding-top: 15px;">
