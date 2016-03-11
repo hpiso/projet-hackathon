@@ -201,7 +201,7 @@
                 var pathIcons  = pathOrigin + '/assets/image/icons/';
 
                 $.ajax({
-                    url: pathOrigin + "/app_dev.php/api/hotels/{{ hotelId }}/places.json"
+                    url: pathOrigin + "/api/hotels/{{ hotelId }}/places.json"
                 }).done(function(data) {
                     var places = data.places;
 
@@ -238,8 +238,8 @@
         <script>
             function initMap() {
                 var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 14,
-                    center: {lat: 48.856614, lng: 2.3522219000000177}
+                    zoom: 4,
+                    center: {lat: 40.46366700000001, lng: -3.7492200000000366}
                 });
             }
         </script>

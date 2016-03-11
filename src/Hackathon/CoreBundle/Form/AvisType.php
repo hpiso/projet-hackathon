@@ -18,7 +18,7 @@ class AvisType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'class' => 'ac_input',
-                    'style' => 'width:400px;height:100px;margin-bottom:10px;',
+                    'style' => 'width:400px;height:100px;margin-bottom:10px;margin-top:20px',
                     'placeholder' => 'Comment avez-vous trouvé cet endroit ?'
             ]])
             ->add('Note', 'integer', [
