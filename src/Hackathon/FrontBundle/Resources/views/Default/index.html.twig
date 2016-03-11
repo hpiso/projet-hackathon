@@ -73,7 +73,7 @@
                 </div>
             </div>
             {% for place in places %}
-                <div style="padding: 15px;" class="div_place" data-id="place_btn_{{ place.id }}">
+                <div id="place_{{ place.id }}" style="padding: 15px;" class="div_place" data-id="place_btn_{{ place.id }}">
                     <div style="width: 30%; display: inline-block;">
                         <img src="http://www.chateaueza.com/media/hotel-chateau-eza-imageLinkchateau-eza-restaurant11.jpg" style="width: 100%;">
                         <p style="text-align: center; padding-top:5px;">
@@ -209,12 +209,22 @@
                             position: {lat: place.latitude, lng: place.longitude},
                             map: map,
                             title: place.name,
-                            icon: pathIcons + place.type.icon
+                            icon: pathIcons + place.type.icon,
+                            idPlace: place.id
                         });
 
-                        google.maps.event.addListener(marker, 'click', function () {
+                        google.maps.event.addListener(marker, 'mouseover', function () {
+                            var placeList = document.getElementById("place_" + this.idPlace);
+                            placeList.style.backgroundColor = "#B5B5B5";
+
                             infowindow.setContent(this.title);
                             infowindow.open(map, this);
+                        });
+
+                        google.maps.event.addListener(marker, 'mouseout', function () {
+                            var placeList = document.getElementById("place_" + this.idPlace);
+                            placeList.style.backgroundColor = "#fff";
+                            infowindow.close(map, this);
                         });
                     }
                 });

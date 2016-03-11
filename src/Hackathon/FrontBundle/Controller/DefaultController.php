@@ -46,19 +46,20 @@ class DefaultController extends Controller
 
 
             try{
-                $repository = $this->getDoctrine()
-                    ->getManager()
-                    ->getRepository('HackathonCoreBundle:Place')
-                ;
-                $place = $repository->find($formAvis->getExtraData()['placeId']);
-
+                $em = $this->getDoctrine()->getManager();
+                $place = $em->getRepository('HackathonCoreBundle:Place')
+                    ->find($formAvis->getExtraData()['placeId']);
 
                 $avis->setPlace($place);
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($avis);
-
                 $em->flush();
+
+                $hotel = $place->getHotel();
+                $places = $em->getRepository('HackathonCoreBundle:Place')->findBy([
+                    'hotel' => $hotel
+                ]);
 
                 $this->addFlash(
                     'notice',
