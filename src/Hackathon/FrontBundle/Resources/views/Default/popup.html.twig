@@ -5,9 +5,8 @@
     });
 </script>
 <div id="fade" class="black_overlay" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'"></div>
-<div class="white_content" id="light">
-    <a href = "javascript:void(0)" style="padding: 5px" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">X</a>
-    <div style="text-align: center;padding-bottom: 15px;">
+<div class="white_content" id="light" style="border-radius:7px;backgourn-color:gray;">
+    <div style="text-align: center;padding-bottom: 25px;">
         <div class="formComment" id="formComment" style="display: none;">
             {{ form_start(formAvis) }}
             {{ form_widget(formAvis) }}
@@ -20,24 +19,26 @@
         <input class="btnForm" type="button" style="text-align: center" id="addComment" value="Ajoutez un avis"/>
     </div>
     {% for avi in avis %}
+        <hr style="    width: 60%;margin: auto;">
         <div style="padding: 15px; ">
             <div style="width: 20%; display: inline-block;">
-                <img src="http://www.arabnewtech.com/wp-content/uploads/avatar-1.png" style="width: 100%;">
+                <img src="http://www.arabnewtech.com/wp-content/uploads/avatar-1.png" style="width: 80%;border-radius:50px;">
 
             </div>
             <div style="width: 75%;display: inline-block;vertical-align:top;padding-left: 10px;">
             <div>
-            <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >
-            <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >
-            <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >
-            <img style="border: 0px;" title="etoile pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-pleine-peripeties-infirmiere.jpg" alt="etoile pleine peripeties infirmiere" width="24" >
-            <img class="alignnone  wp-image-148" style="border: 0px;" title="etoile moitié pleine peripeties infirmiere" src="http://peripeties-infirmiere.com/wp-content/uploads/2012/08/etoile-moitié-pleine-peripeties-infirmiere.jpg" alt="etoile moitié pleine peripeties infirmiere" width="24">
-            <p style="font-family: 'Verdana';font-size: 8px;display: inline-block;"> {{ avi.note }}/5</p>
+                {% for i in 1..5 %}
+                    {% if i <= avi.note %}
+                        <a style="color: #FFD900; text-decoration: none;font-size: 2em;">☆</a>
+                    {% else %}
+                        <a style="color: gray; text-decoration: none;font-size: 2em;">☆</a>
+                    {% endif %}
+                {% endfor %}
             </div>
             <div style="padding-top: 15px;">
-                <h4 style="font-family: 'Trebuchet MS'">Posté par <strong>John Doe</strong> le {{ avi.date | date('d F Y') }}</h4>
+                <h4 style="font-family: 'Trebuchet MS';font-size:1.1em">Posté par John Doe le {{ avi.date | date('d F Y') }}</h4>
                 <br/>
-                <p style="font-size: 14px;color:gray;">
+                <p style="font-size: 14px;color:gray;font-family: 'Verdana';font-size: 0.9em;">
                     {{ avi.description }}
                 </p>
             <h5 style="font-family: 'Trebuchet MS'"></h5>
