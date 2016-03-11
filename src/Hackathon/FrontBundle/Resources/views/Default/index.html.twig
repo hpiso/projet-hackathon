@@ -200,6 +200,8 @@
                 }).done(function(data) {
                     var places = data.places;
 
+                    var infowindow = new google.maps.InfoWindow();
+
                     for (var i = 0; i < places.length; i++) {
                         var place = places[i];
                         var marker = new google.maps.Marker({
@@ -208,14 +210,11 @@
                             title: place.name,
                             icon: pathIcons + place.type.icon
                         });
-//                        marker.addListener('click', function() {
-//                            var infowindow = new google.maps.InfoWindow({
-//                                content: place.name,
-//                                maxWidth: 200
-//                            });
-//
-//                            infowindow.open(map, this);
-//                        });
+
+                        google.maps.event.addListener(marker, 'click', function () {
+                            infowindow.setContent(this.title);
+                            infowindow.open(map, this);
+                        });
                     }
                 });
             }
